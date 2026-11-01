@@ -2,7 +2,7 @@
 
 import {useEffect, useMemo, useRef, useState} from 'react';
 import {ExternalLink, MapPin, Navigation, Phone} from 'lucide-react';
-import {offices} from '@/data/company';
+import {offices as officesSeed} from '@/data/company';
 import 'leaflet/dist/leaflet.css';
 
 function directionsUrl(office) {
@@ -20,9 +20,12 @@ function pinIconHtml(active) {
   `;
 }
 
-export default function OfficeMap({locale = 'en'}) {
+export default function OfficeMap({locale = 'en', offices}) {
   const ar = locale === 'ar';
-  const list = useMemo(() => (Array.isArray(offices) ? offices : []), []);
+  const list = useMemo(
+    () => (Array.isArray(offices) && offices.length ? offices : officesSeed),
+    [offices],
+  );
   const [activeId, setActiveId] = useState(list[0]?.id || 'abu-dhabi');
   const mapRef = useRef(null);
   const mapInstanceRef = useRef(null);

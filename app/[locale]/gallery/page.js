@@ -1,4 +1,5 @@
 import GalleryExperience from '@/components/gallery/GalleryExperience';
+import {getPublicGallery, getPublicProjects} from '@/lib/cms/public-data';
 import {staticPageMetadata} from '@/lib/cms/seo/page-meta';
 
 export const generateMetadata = staticPageMetadata({
@@ -11,7 +12,10 @@ export const generateMetadata = staticPageMetadata({
   schemaType: 'CreativeWork',
 });
 
+export const dynamic = 'force-dynamic';
+
 export default async function GalleryPage({params}) {
   const {locale} = await params;
-  return <GalleryExperience locale={locale} />;
+  const [items, projects] = await Promise.all([getPublicGallery(), getPublicProjects()]);
+  return <GalleryExperience locale={locale} items={items} projects={projects} />;
 }

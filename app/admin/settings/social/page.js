@@ -26,7 +26,7 @@ export default async function AdminSocialSettingsPage() {
       user={user}
       navItems={navItems}
       title={adminText("Social")}
-      subtitle={adminText("Profiles used by the footer and floating social bar")}
+      subtitle={adminText("Profile URLs on the website. Use Social studio to queue posts — publishing waits for API keys.")}
     >
       <SettingsLayout items={CMS_SETTINGS_NAV} active="social">
       <DocumentForm

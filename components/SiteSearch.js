@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import {useCallback, useEffect, useId, useMemo, useRef, useState} from 'react';
+import {useCallback, useEffect, useId, useRef, useState} from 'react';
 import {AnimatePresence, motion} from 'motion/react';
 import {ArrowUpRight, Building2, Briefcase, Layers, Newspaper, Search, Users, X} from 'lucide-react';
 import {hrefForResult, searchSite, typeLabel} from '@/lib/search/site-index';
@@ -35,7 +35,28 @@ export default function SiteSearch({locale, open, onOpenChange}) {
   const [active, setActive] = useState(0);
 
   const trimmed = query.trim();
-  const results = useMemo(() => (trimmed ? searchSite(trimmed, {limit: 12}) : []), [trimmed]);
+  const [results, setResults] = useState([]);
+
+  useEffect(() => {
+    if (!trimmed) {
+      setResults([]);
+      return undefined;
+    }
+    const handle = window.setTimeout(async () => {
+      try {
+        const res = await fetch(`/api/public/search?q=${encodeURIComponent(trimmed)}`, {cache: 'no-store'});
+        const data = await res.json();
+        if (Array.isArray(data.results) && data.results.length) {
+          setResults(data.results);
+          return;
+        }
+      } catch {
+        // Fall back to the bundled index.
+      }
+      setResults(searchSite(trimmed, {limit: 12}));
+    }, 160);
+    return () => window.clearTimeout(handle);
+  }, [trimmed]);
 
   const close = useCallback(() => {
     onOpenChange?.(false);

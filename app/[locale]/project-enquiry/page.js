@@ -4,7 +4,7 @@ import {ArrowRight, Clock3, FileText, Mail, MessageCircle, Phone} from 'lucide-r
 import {Container} from '@/components/UI';
 import {ActionButton, ActionGroup} from '@/components/ActionButton';
 import EnquiryForm from '@/components/EnquiryForm';
-import {getPublicCompany} from '@/lib/cms/public-data';
+import {getPublicCompany, getPublicServices} from '@/lib/cms/public-data';
 import {roleImages, ctaBandImages} from '@/data/image-manifest';
 import {staticPageMetadata} from '@/lib/cms/seo/page-meta';
 
@@ -51,7 +51,7 @@ export const dynamic = 'force-dynamic';
 export default async function Enquiry({params}) {
   const {locale} = await params;
   const ar = locale === 'ar';
-  const company = await getPublicCompany();
+  const [company, services] = await Promise.all([getPublicCompany(), getPublicServices()]);
 
   return (
     <div className="enquiry-page">
@@ -151,7 +151,7 @@ export default async function Enquiry({params}) {
                   : 'Complete the fields below and we will open a ready message to the ASAS team.'}
               </p>
             </header>
-            <EnquiryForm locale={locale} id="standalone-enquiry-form" />
+            <EnquiryForm locale={locale} id="standalone-enquiry-form" companyData={company} services={services} />
           </div>
         </Container>
       </section>

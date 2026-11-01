@@ -1,8 +1,8 @@
 'use client';
 
 import {ArrowUpRight, Mail} from 'lucide-react';
-import {services} from '@/data/services';
-import {company} from '@/data/company';
+import {services as servicesSeed} from '@/data/services';
+import {company as companySeed} from '@/data/company';
 
 const REQUIRED_MSG = {
   en: 'Please fill out this field.',
@@ -14,8 +14,10 @@ const EMAIL_MSG = {
   ar: 'يرجى إدخال بريد إلكتروني صالح.',
 };
 
-export default function HomeContactForm({locale = 'en'}) {
+export default function HomeContactForm({locale = 'en', services, companyData}) {
   const ar = locale === 'ar';
+  const list = Array.isArray(services) && services.length ? services : servicesSeed;
+  const company = companyData || companySeed;
   const requiredMsg = ar ? REQUIRED_MSG.ar : REQUIRED_MSG.en;
   const emailMsg = ar ? EMAIL_MSG.ar : EMAIL_MSG.en;
 
@@ -75,7 +77,7 @@ export default function HomeContactForm({locale = 'en'}) {
           <span>{ar ? 'الخدمة المطلوبة' : 'Service'}</span>
           <select name="service" defaultValue="">
             <option value="" disabled>{ar ? 'اختر خدمة' : 'Select a service'}</option>
-            {services.map((service) => (
+            {list.map((service) => (
               <option value={service.slug} key={service.slug}>
                 {ar ? service.titleAr : service.title}
               </option>

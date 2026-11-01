@@ -1,4 +1,4 @@
-import {NextResponse} from 'next/server';
+import {NextResponse, after} from 'next/server';
 import {revalidatePath} from 'next/cache';
 import {requireAdmin} from '@/lib/cms/auth';
 import {writeAudit} from '@/lib/cms/audit';
@@ -6,27 +6,20 @@ import {hasPermission, PERMS} from '@/lib/cms/permissions';
 import {deleteTeamMember, getTeamMemberById, updateTeamMember} from '@/lib/team/store';
 
 export const runtime = 'nodejs';
+export const dynamic = 'force-dynamic';
+export const maxDuration = 30;
 
 function revalidateTeamPublic(slug, publicId) {
   try {
-    revalidatePath('/en');
-    revalidatePath('/ar');
-    revalidatePath('/en/team');
-    revalidatePath('/ar/team');
-    revalidatePath('/sitemap.xml');
+    if (publicId) revalidatePath(`/c/${publicId}`);
     if (slug) {
-      revalidatePath(`/en/team/${slug}`);
-      revalidatePath(`/ar/team/${slug}`);
       revalidatePath(`/en/card/${slug}`);
       revalidatePath(`/ar/card/${slug}`);
-      revalidatePath(`/c/${slug}`);
+      revalidatePath(`/en/team/${slug}`);
+      revalidatePath(`/ar/team/${slug}`);
     }
-    if (publicId) {
-      revalidatePath(`/c/${publicId}`);
-    }
-    revalidatePath('/c/[publicId]', 'page');
   } catch {
-    // Cache revalidation must not block card save on read-only hosts.
+    // Cache revalidation must not block card save.
   }
 }
 
@@ -92,43 +85,38 @@ export async function PUT(request, {params}) {
     }
 
     const member = await updateTeamMember(id, payload);
-    revalidateTeamPublic(member.slug, member?.digital_card?.publicId);
-    if (existing?.slug && existing.slug !== member.slug) {
-      try {
-        revalidatePath(`/en/team/${existing.slug}`);
-        revalidatePath(`/ar/team/${existing.slug}`);
-        revalidatePath(`/en/card/${existing.slug}`);
-        revalidatePath(`/ar/card/${existing.slug}`);
-      } catch {
-        // ignore cache errors
+    after(() => {
+      revalidateTeamPublic(member.slug, member?.digital_card?.publicId);
+      if (existing?.slug && existing.slug !== member.slug) {
+        revalidateTeamPublic(existing.slug, existing?.digital_card?.publicId);
       }
-    }
-
-    const prevCard = existing.digital_card || {};
-    const nextCard = member.digital_card || {};
-    if (JSON.stringify(prevCard) !== JSON.stringify(nextCard)) {
-      let action = 'employee_card.update';
-      if (nextCard.status === 'published' && prevCard.status !== 'published') {
-        action = 'employee_card.publish';
-      } else if (
-        nextCard.status === 'disabled' &&
-        prevCard.status !== 'disabled'
+      const prevCard = existing.digital_card || {};
+      const nextCard = member.digital_card || {};
+      if (
+        prevCard.status !== nextCard.status ||
+        prevCard.templateId !== nextCard.templateId ||
+        prevCard.publicId !== nextCard.publicId
       ) {
-        action = 'employee_card.disable';
+        let action = 'employee_card.update';
+        if (nextCard.status === 'published' && prevCard.status !== 'published') {
+          action = 'employee_card.publish';
+        } else if (nextCard.status === 'disabled' && prevCard.status !== 'disabled') {
+          action = 'employee_card.disable';
+        }
+        writeAudit({
+          actorId: session.user?.id,
+          actorEmail: session.user?.email,
+          action,
+          entity: 'employee_card',
+          entityId: member.id,
+          meta: {
+            slug: member.slug,
+            status: nextCard.status,
+            templateId: nextCard.templateId,
+          },
+        });
       }
-      await writeAudit({
-        actorId: session.user?.id,
-        actorEmail: session.user?.email,
-        action,
-        entity: 'employee_card',
-        entityId: member.id,
-        meta: {
-          slug: member.slug,
-          status: nextCard.status,
-          templateId: nextCard.templateId,
-        },
-      });
-    }
+    });
 
     return NextResponse.json({member});
   } catch (error) {

@@ -204,9 +204,7 @@ export default function Header({locale, navItems, companyData, branding}) {
             {t('engineeringTomorrow', locale)}
           </p>
           <p className="asas-topbar-center">
-            {ar
-              ? `${companyInfo.nameAr || companyInfo.name} · ${t('abuDhabiUae', locale)}`
-              : 'ASAS Engineering & Project Management Consultancy · Abu Dhabi, UAE'}
+            {`${ar ? companyInfo.nameAr || companyInfo.name : companyInfo.name} · ${t('abuDhabiUae', locale)}`}
           </p>
           <div className="asas-topbar-meta">
             <a

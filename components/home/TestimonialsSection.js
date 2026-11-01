@@ -2,11 +2,12 @@
 
 import {useCallback, useEffect, useRef, useState} from 'react';
 import {Quote, Star} from 'lucide-react';
-import {testimonials, testimonialsCopy} from '@/data/testimonials';
+import {testimonials as testimonialsSeed, testimonialsCopy} from '@/data/testimonials';
 import {NextChevron, PrevChevron} from '@/components/icons/DirectionalChevrons';
 
-export default function TestimonialsSection({locale}) {
+export default function TestimonialsSection({locale, items}) {
   const ar = locale === 'ar';
+  const testimonials = Array.isArray(items) && items.length ? items : testimonialsSeed;
   const copy = testimonialsCopy[ar ? 'ar' : 'en'];
   const viewportRef = useRef(null);
   const indexRef = useRef(0);

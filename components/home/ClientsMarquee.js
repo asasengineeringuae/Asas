@@ -1,7 +1,7 @@
 'use client';
 
 import {useEffect, useState} from 'react';
-import {clients, clientsCopy} from '@/data/clients';
+import {clients as clientsSeed, clientsCopy} from '@/data/clients';
 
 function LogoChip({client, ar, inert}) {
   const label = ar ? client.nameAr : client.name;
@@ -27,7 +27,7 @@ function LogoChip({client, ar, inert}) {
   );
 }
 
-function LogoGroup({ar, inert}) {
+function LogoGroup({ar, inert, clients}) {
   return (
     <div className="asas-clients-group" aria-hidden={inert || undefined}>
       {clients.map((client) => (
@@ -37,8 +37,9 @@ function LogoGroup({ar, inert}) {
   );
 }
 
-export default function ClientsMarquee({locale}) {
+export default function ClientsMarquee({locale, items}) {
   const ar = locale === 'ar';
+  const clients = Array.isArray(items) && items.length ? items : clientsSeed;
   const copy = clientsCopy[ar ? 'ar' : 'en'];
   const [reduced, setReduced] = useState(false);
   const canMarquee = clients.length >= 4;
@@ -70,11 +71,11 @@ export default function ClientsMarquee({locale}) {
         <div className="asas-clients-fade asas-clients-fade--end" aria-hidden="true" />
         <div className="asas-clients-track">
           {staticMode ? (
-            <LogoGroup ar={ar} />
+            <LogoGroup ar={ar} clients={clients} />
           ) : (
             <>
-              <LogoGroup ar={ar} />
-              <LogoGroup ar={ar} inert />
+              <LogoGroup ar={ar} clients={clients} />
+              <LogoGroup ar={ar} clients={clients} inert />
             </>
           )}
         </div>

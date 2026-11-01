@@ -1,8 +1,8 @@
 import {mkdir, writeFile} from 'fs/promises';
 import path from 'path';
 import {NextResponse} from 'next/server';
-import {GENERAL_APPLICATION, getJobBySlug, getOpenJobs} from '@/data/careers';
-import {company} from '@/data/company';
+import {GENERAL_APPLICATION} from '@/data/careers';
+import {getPublicCompany, getPublicJobBySlug} from '@/lib/cms/public-data';
 import {upsertCollectionItem} from '@/lib/cms/json-store';
 import {notifyStaff, sendMail} from '@/lib/cms/mail';
 
@@ -19,9 +19,9 @@ function safeName(name) {
     .slice(0, 80);
 }
 
-function validatePosition(position) {
+async function validatePosition(position) {
   if (position === GENERAL_APPLICATION.slug) return true;
-  const job = getJobBySlug(position);
+  const job = await getPublicJobBySlug(position);
   return Boolean(job && job.status === 'open');
 }
 
@@ -45,9 +45,10 @@ export async function POST(request) {
     if (!EMAIL_RE.test(email)) {
       return NextResponse.json({error: 'Invalid email'}, {status: 400});
     }
-    if (!validatePosition(position)) {
+    if (!(await validatePosition(position))) {
       return NextResponse.json({error: 'Invalid position'}, {status: 400});
     }
+    const company = await getPublicCompany();
     if (!cv || typeof cv === 'string' || !cv.arrayBuffer) {
       return NextResponse.json({error: 'CV file is required'}, {status: 400});
     }
@@ -79,7 +80,7 @@ export async function POST(request) {
       position: {
         slug: position,
         label: positionLabel || position,
-        openRolesSnapshot: getOpenJobs().map((job) => job.slug),
+        openRolesSnapshot: position,
       },
       cv: {
         fileName: original,

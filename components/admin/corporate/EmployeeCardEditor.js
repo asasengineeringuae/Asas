@@ -4,7 +4,6 @@ import {adminText} from '@/lib/admin/translate';
 
 import {useEffect, useMemo, useState} from 'react';
 import Link from 'next/link';
-import {useRouter} from 'next/navigation';
 import {
   ArrowLeft,
   Copy,
@@ -73,7 +72,6 @@ export default function EmployeeCardEditor({
   canPublish = false,
   peers = [],
 }) {
-  const router = useRouter();
   const [tab, setTab] = useState('design');
   const [draft, setDraft] = useState(() => {
     const card = normalizeDigitalCard(initialMember?.digital_card);
@@ -157,8 +155,10 @@ export default function EmployeeCardEditor({
       if (disable) {
         nextCard = {...nextCard, enabled: false, status: 'disabled'};
       }
-      const res = await fetch(`/api/admin/team/${draft.id}`, {
+      const res = await fetch(`/api/admin/team/${encodeURIComponent(draft.id)}`, {
         method: 'PUT',
+        cache: 'no-store',
+        credentials: 'same-origin',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
           digital_card: nextCard,
@@ -177,8 +177,14 @@ export default function EmployeeCardEditor({
           linkedin_url: draft.linkedin_url,
         }),
       });
-      const data = await res.json();
+      let data = {};
+      try {
+        data = await res.json();
+      } catch {
+        throw new Error(res.ok ? 'Save failed' : `Save failed (${res.status})`);
+      }
       if (!res.ok) throw new Error(data.error || 'Save failed');
+      if (!data.member) throw new Error('Save failed');
       setDraft((current) => ({
         ...current,
         ...data.member,
@@ -186,9 +192,9 @@ export default function EmployeeCardEditor({
       }));
       setSavedAt(data.member?.updated_at || String(Date.now()));
       setMessage(publish ? 'Published.' : disable ? 'Disabled.' : 'Saved.');
-      router.refresh();
     } catch (err) {
-      setError(err.message || 'Save failed');
+      const raw = String(err?.message || 'Save failed');
+      setError(raw === 'Failed to fetch' ? 'Could not reach the server. Try Save again.' : raw);
     } finally {
       setSaving(false);
     }

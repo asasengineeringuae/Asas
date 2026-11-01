@@ -2,8 +2,8 @@
 
 import {useState} from 'react';
 import {ArrowUpRight, CheckCircle2, Loader2, Mail} from 'lucide-react';
-import {services} from '@/data/services';
-import {company} from '@/data/company';
+import {services as servicesSeed} from '@/data/services';
+import {company as companySeed} from '@/data/company';
 
 const EXTRA_OPTIONS = [
   {slug: 'other', title: 'Other', titleAr: 'أخرى'},
@@ -20,12 +20,18 @@ const initial = {
   message: '',
 };
 
-export default function EnquiryForm({locale = 'en', id = 'project-enquiry-form'}) {
+export default function EnquiryForm({
+  locale = 'en',
+  id = 'project-enquiry-form',
+  services,
+  companyData,
+}) {
   const ar = locale === 'ar';
+  const company = companyData || companySeed;
   const [values, setValues] = useState(initial);
   const [errors, setErrors] = useState({});
   const [status, setStatus] = useState('idle');
-  const options = [...services, ...EXTRA_OPTIONS];
+  const options = [...(Array.isArray(services) && services.length ? services : servicesSeed), ...EXTRA_OPTIONS];
 
   const copy = ar
     ? {

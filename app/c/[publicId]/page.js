@@ -2,7 +2,7 @@ import {notFound} from 'next/navigation';
 import Link from 'next/link';
 import {headers} from 'next/headers';
 import {unstable_noStore as noStore} from 'next/cache';
-import {company} from '@/data/company';
+import {getPublicCompany} from '@/lib/cms/public-data';
 import {
   buildPublicCardPath,
   normalizeDigitalCard,
@@ -24,14 +24,15 @@ function absUrl(path, host, proto) {
 }
 
 async function requestOrigin() {
+  const fallbackHost = (await getPublicCompany()).website;
   try {
     const h = await headers();
-    const host = h.get('x-forwarded-host') || h.get('host') || company.website;
+    const host = h.get('x-forwarded-host') || h.get('host') || fallbackHost;
     const proto =
       h.get('x-forwarded-proto') || (String(host).includes('localhost') ? 'http' : 'https');
     return {host, proto};
   } catch {
-    return {host: company.website, proto: 'https'};
+    return {host: fallbackHost, proto: 'https'};
   }
 }
 
@@ -83,7 +84,7 @@ export default async function StableDigitalCardPage({params, searchParams}) {
   if (!member) notFound();
 
   const card = normalizeDigitalCard(member.digital_card);
-  const branding = await getBranding();
+  const [branding, company] = await Promise.all([getBranding(), getPublicCompany()]);
   const {host, proto} = await requestOrigin();
   const profileUrl = `${proto}://${host}${buildPublicCardPath(card.publicId || publicId)}`;
   const qrDataUrl = await generateQrDataUrl(profileUrl, {

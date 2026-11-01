@@ -27,6 +27,8 @@ import {
   getPublicProjects,
   getPublicServices,
   getPublicSectors,
+  getPublicClients,
+  getPublicTestimonials,
   orderedHomepageSections,
 } from '@/lib/cms/public-data';
 import {staticPageMetadata} from '@/lib/cms/seo/page-meta';
@@ -263,6 +265,8 @@ export default async function Home({params}) {
     sectors,
     featuredServices,
     featuredTeam,
+    clients,
+    testimonials,
   ] = await Promise.all([
     getPublicHomepage(),
     getPublicCompany(),
@@ -271,6 +275,8 @@ export default async function Home({params}) {
     getPublicSectors(),
     getPublicFeaturedServices(),
     getHomepageTeamMembers({limit: 4}),
+    getPublicClients(),
+    getPublicTestimonials(),
   ]);
 
   const cmsCopy = homepage?.copy?.[ar ? 'ar' : 'en'];
@@ -352,7 +358,7 @@ export default async function Home({params}) {
       </section>
     ),
 
-    clients: <ClientsMarquee key="clients" locale={locale} />,
+    clients: <ClientsMarquee key="clients" locale={locale} items={clients} />,
 
     services: <ServicesTabs key="services" locale={locale} services={tabsServices} />,
 
@@ -548,7 +554,7 @@ export default async function Home({params}) {
       </section>
     ),
 
-    testimonials: <TestimonialsSection key="testimonials" locale={locale} />,
+    testimonials: <TestimonialsSection key="testimonials" locale={locale} items={testimonials} />,
 
     team: <HomeTeamSection key="team" members={featuredTeam} locale={locale} />,
 
@@ -593,7 +599,7 @@ export default async function Home({params}) {
                 </div>
               </article>
             </div>
-            <HomeContactForm locale={locale} />
+            <HomeContactForm locale={locale} services={services} companyData={company} />
           </div>
         </div>
       </section>

@@ -1,5 +1,6 @@
-import {projects, projectCategories} from '@/data/projects';
+import {projectCategories} from '@/data/projects';
 import PortfolioExperience from '@/components/portfolio/PortfolioExperience';
+import {getPublicProjects} from '@/lib/cms/public-data';
 import {staticPageMetadata} from '@/lib/cms/seo/page-meta';
 
 export const generateMetadata = staticPageMetadata({
@@ -12,8 +13,11 @@ export const generateMetadata = staticPageMetadata({
 });
 
 
+export const dynamic = 'force-dynamic';
+
 export default async function PortfolioPage({params}) {
   const {locale} = await params;
+  const projects = await getPublicProjects();
 
   return <PortfolioExperience locale={locale} projects={projects} categories={projectCategories} />;
 }

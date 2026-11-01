@@ -1,4 +1,5 @@
-import {NextResponse} from 'next/server';
+import {NextResponse, after} from 'next/server';
+import {revalidatePath} from 'next/cache';
 import {requireAdmin} from '@/lib/cms/auth';
 import {writeAudit} from '@/lib/cms/audit';
 import {PERMS} from '@/lib/cms/permissions';
@@ -249,6 +250,18 @@ const RESOURCES = {
   },
 };
 
+function refreshPublicSite() {
+  after(() => {
+    try {
+      revalidatePath('/');
+      revalidatePath('/en');
+      revalidatePath('/ar');
+    } catch {
+      // Public cache refresh must not block CMS saves.
+    }
+  });
+}
+
 function resolveResource(name) {
   const resource = RESOURCES[name];
   if (!resource) badRequest(`Unknown resource: ${name || '(empty)'}`);
@@ -301,6 +314,7 @@ async function writeHandler(request, method) {
         entity: name,
         entityId: result?.id || result?.slug || 'item',
       });
+      refreshPublicSite();
       return NextResponse.json({resource: name, item: result});
     }
 
@@ -316,6 +330,7 @@ async function writeHandler(request, method) {
         entity: 'page-copy',
         entityId: pageId,
       });
+      refreshPublicSite();
       return NextResponse.json({resource: name, document: result, pageId});
     }
 
@@ -329,6 +344,7 @@ async function writeHandler(request, method) {
       entity: name,
       entityId: name,
     });
+    refreshPublicSite();
     return NextResponse.json({resource: name, document: result});
   } catch (error) {
     return errorResponse(error);
@@ -370,6 +386,7 @@ export async function DELETE(request) {
       entity: name,
       entityId: slug || id,
     });
+    refreshPublicSite();
     return NextResponse.json({ok: true, resource: name});
   } catch (error) {
     return errorResponse(error);

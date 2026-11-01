@@ -7,7 +7,7 @@ import EnquiryForm from '@/components/EnquiryForm';
 import OfficeMap from '@/components/OfficeMap';
 import {company as companySeed} from '@/data/company';
 import {roleImages, ctaBandImages} from '@/data/image-manifest';
-import {getPublicCompany, getPublicPageCopy} from '@/lib/cms/public-data';
+import {getPublicCompanyBundle, getPublicPageCopy, getPublicServices} from '@/lib/cms/public-data';
 import {resolvePageChromeForLocale} from '@/lib/cms/page-chrome';
 import {staticPageMetadata} from '@/lib/cms/seo/page-meta';
 
@@ -30,7 +30,12 @@ export const dynamic = 'force-dynamic';
 export default async function Contact({params}) {
   const {locale} = await params;
   const ar = locale === 'ar';
-  const [company, pageCopy] = await Promise.all([getPublicCompany(), getPublicPageCopy('contact')]);
+  const [bundle, pageCopy, services] = await Promise.all([
+    getPublicCompanyBundle(),
+    getPublicPageCopy('contact'),
+    getPublicServices(),
+  ]);
+  const company = bundle.company;
   const chrome = resolvePageChromeForLocale(pageCopy, locale, {
     heroImage: roleImages.CONTACT_HERO,
     heroImageFocal: '50% 40%',
@@ -159,14 +164,14 @@ export default async function Contact({params}) {
                   : 'Share the essentials about your project and the ASAS team will follow up.'}
               </p>
             </header>
-            <EnquiryForm locale={locale} id="contact-enquiry-form" />
+            <EnquiryForm locale={locale} id="contact-enquiry-form" companyData={company} services={services} />
           </div>
         </Container>
       </section>
 
       <section className="contact-map-wrap">
         <Container>
-          <OfficeMap locale={locale} />
+          <OfficeMap locale={locale} offices={bundle.offices} />
         </Container>
       </section>
 

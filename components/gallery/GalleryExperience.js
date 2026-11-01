@@ -11,13 +11,16 @@ import GalleryViewer from '@/components/gallery/GalleryViewer';
 import GalleryCTA from '@/components/gallery/GalleryCTA';
 import {buildJournalCatalog, buildJournalNarrative} from '@/lib/gallery/journal';
 
-export default function GalleryExperience({locale}) {
+export default function GalleryExperience({locale, items, projects}) {
   const ar = locale === 'ar';
   const reduceMotion = useReducedMotion();
   const [active, setActive] = useState(null);
   const [chrome, setChrome] = useState(100);
 
-  const catalog = useMemo(() => buildJournalCatalog(locale), [locale]);
+  const catalog = useMemo(
+    () => buildJournalCatalog(locale, {items, projects}),
+    [locale, items, projects],
+  );
   const narrative = useMemo(() => buildJournalNarrative(catalog), [catalog]);
 
   useEffect(() => {

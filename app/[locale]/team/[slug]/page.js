@@ -1,6 +1,5 @@
 import {notFound} from 'next/navigation';
-import {company} from '@/data/company';
-import {projects} from '@/data/projects';
+import {getPublicCompany, getPublicProjects} from '@/lib/cms/public-data';
 import {
   getRelatedTeamMembers,
   getTeamMemberBySlug,
@@ -18,7 +17,7 @@ export const dynamic = 'force-dynamic';
 
 export async function generateMetadata({params}) {
   const {locale, slug} = await params;
-  const item = await getTeamMemberBySlug(slug);
+  const [item, company] = await Promise.all([getTeamMemberBySlug(slug), getPublicCompany()]);
   if (!item) return {title: 'Team'};
   return buildRouteMetadata({
     locale,
@@ -59,7 +58,11 @@ function CredentialList({title, items}) {
 export default async function TeamMemberPage({params}) {
   const {locale, slug} = await params;
   const ar = locale === 'ar';
-  const member = await getTeamMemberBySlug(slug);
+  const [member, company, projects] = await Promise.all([
+    getTeamMemberBySlug(slug),
+    getPublicCompany(),
+    getPublicProjects(),
+  ]);
   if (!member) notFound();
 
   const local = localizeMember(member, locale);

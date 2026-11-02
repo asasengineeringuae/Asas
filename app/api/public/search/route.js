@@ -1,5 +1,5 @@
 import {NextResponse} from 'next/server';
-import {searchSiteLive} from '@/lib/search/site-index';
+import {searchSiteLive} from '@/lib/search/site-index-server';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';

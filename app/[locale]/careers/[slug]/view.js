@@ -13,6 +13,8 @@ import {
   getPublicOpenJobs,
 } from '@/lib/cms/public-data';
 import {buildRouteMetadata} from '@/lib/cms/seo/build-metadata';
+import {buildJobPostingJsonLd, buildBreadcrumbJsonLd} from '@/lib/cms/seo/schema-builders';
+import JsonLd from '@/components/seo/JsonLd';
 
 export const dynamic = 'force-dynamic';
 
@@ -56,8 +58,32 @@ export default async function CareerDetail({params}) {
   const type = employmentTypes[job.type];
   const openCount = (await getPublicOpenJobs()).length;
 
+  const pageUrl = `https://www.asasengg.ae/${locale}/careers/${job.slug}`;
+
   return (
     <div className="careers-page">
+      <JsonLd
+        id="asas-job-schema"
+        data={buildJobPostingJsonLd({
+          title: job.title,
+          titleAr: job.titleAr,
+          description: job.summary || job.description,
+          descriptionAr: job.summaryAr || job.descriptionAr,
+          url: pageUrl,
+          datePosted: job.date || job.postedAt,
+          employmentType: String(job.type || 'FULL_TIME').toUpperCase().replace(/-/g, '_'),
+          jobLocation: `${job.location || 'Abu Dhabi'}, AE`,
+          identifier: job.slug,
+        })}
+      />
+      <JsonLd
+        id="asas-job-crumbs"
+        data={buildBreadcrumbJsonLd([
+          {name: ar ? 'الرئيسية' : 'Home', url: `https://www.asasengg.ae/${locale}`},
+          {name: ar ? 'الوظائف' : 'Careers', url: `https://www.asasengg.ae/${locale}/careers`},
+          {name: ar ? job.titleAr : job.title, url: pageUrl},
+        ])}
+      />
       <section className="careers-detail-hero">
         <Container>
           <span className="breadcrumb">

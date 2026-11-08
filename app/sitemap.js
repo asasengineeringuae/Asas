@@ -14,6 +14,7 @@ const STATIC_ROUTES = [
   'services',
   'projects',
   'gallery',
+  'videos',
   'portfolio',
   'sectors',
   'blog',

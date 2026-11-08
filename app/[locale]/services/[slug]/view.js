@@ -33,6 +33,8 @@ import {
   getPublicSectors,
 } from '@/lib/cms/public-data';
 import {buildRouteMetadata} from '@/lib/cms/seo/build-metadata';
+import {buildServiceJsonLd, buildBreadcrumbJsonLd} from '@/lib/cms/seo/schema-builders';
+import JsonLd from '@/components/seo/JsonLd';
 
 export const dynamic = 'force-dynamic';
 
@@ -138,8 +140,29 @@ export default async function Service({params}) {
   const heroFocusClass =
     slug === 'quantities-cost' ? ' sd-hero--focus-upper' : '';
 
+  const pageUrl = `https://www.asasengg.ae/${locale}/services/${service.slug}`;
+
   return (
     <div className="sd">
+      <JsonLd
+        id="asas-service-schema"
+        data={buildServiceJsonLd({
+          name: service.title,
+          nameAr: service.titleAr,
+          description,
+          descriptionAr: service.descriptionAr,
+          url: pageUrl,
+          image: heroSrc || service.cover || service.image,
+        })}
+      />
+      <JsonLd
+        id="asas-service-crumbs"
+        data={buildBreadcrumbJsonLd([
+          {name: ar ? 'الرئيسية' : 'Home', url: `https://www.asasengg.ae/${locale}`},
+          {name: ar ? 'الخدمات' : 'Services', url: `https://www.asasengg.ae/${locale}/services`},
+          {name: title, url: pageUrl},
+        ])}
+      />
       <section className={`sd-hero${heroFocusClass}`} id="overview">
         <div className="sd-hero-media" aria-hidden="true">
           <Image

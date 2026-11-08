@@ -3,6 +3,8 @@ import ProjectDetailView from '@/components/projects/ProjectDetailView';
 import {projectCategories} from '@/data/projects';
 import {getPublicProjectBySlug, getPublicProjects, getPublicSectors, getPublicServices} from '@/lib/cms/public-data';
 import {buildRouteMetadata} from '@/lib/cms/seo/build-metadata';
+import {buildBreadcrumbJsonLd} from '@/lib/cms/seo/schema-builders';
+import JsonLd from '@/components/seo/JsonLd';
 
 export const dynamic = 'force-dynamic';
 
@@ -111,7 +113,29 @@ export default async function Project({params}) {
     ar ? scopeTagsAr[item.title] || item.titleAr || item.title : scopeTagsEn[item.title] || item.title,
   );
 
+  const pageUrl = `https://www.asasengg.ae/${locale}/projects/${project.slug}`;
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'CreativeWork',
+    name: ar ? project.titleAr : project.title,
+    description: ar ? project.descriptionAr : project.description,
+    url: pageUrl,
+    image: project.cover || project.image || project.visual?.src || undefined,
+    creator: {'@type': 'Organization', name: 'ASAS Engineering & Project Management Consultancy'},
+    contentLocation: ar ? project.locationAr || project.location : project.location,
+  };
+
   return (
+    <>
+      <JsonLd id="asas-project-schema" data={jsonLd} />
+      <JsonLd
+        id="asas-project-crumbs"
+        data={buildBreadcrumbJsonLd([
+          {name: ar ? 'الرئيسية' : 'Home', url: `https://www.asasengg.ae/${locale}`},
+          {name: ar ? 'المشاريع' : 'Projects', url: `https://www.asasengg.ae/${locale}/projects`},
+          {name: ar ? project.titleAr : project.title, url: pageUrl},
+        ])}
+      />
     <ProjectDetailView
       locale={locale}
       project={project}
@@ -126,5 +150,6 @@ export default async function Project({params}) {
       scopeTags={scopeTags}
       hasBrochure
     />
+    </>
   );
 }

@@ -44,7 +44,13 @@ export default async function LocaleLayout({children, params}) {
   const branding = normalizeBranding(siteSettings?.branding);
   const featuredServices = (allServices || []).filter((service) => service.featured).slice(0, 7);
   const social = siteSettings?.socialLinks || {};
-  const sameAs = [social.linkedin, social.instagram, social.facebook, social.youtube].filter(Boolean);
+  const sameAs = [
+    ...(Array.isArray(seoSettings.sameAs) ? seoSettings.sameAs : []),
+    social.linkedin,
+    social.instagram,
+    social.facebook,
+    social.youtube,
+  ].filter((url, index, list) => url && list.indexOf(url) === index);
   const footerLinks = footerDoc?.companyLinks;
   const footerCta = footerDoc?.cta;
 

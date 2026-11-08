@@ -5,7 +5,7 @@
   "defaultTitleAr": "أساس للهندسة | أبوظبي",
   "defaultDescriptionEn": "ASAS Engineering & Project Management Consultancy — architecture, structure, MEP, supervision and project management in Abu Dhabi.",
   "defaultDescriptionAr": "أساس للاستشارات الهندسية وإدارة المشاريع — عمارة وإنشاءات وMEP وإشراف وإدارة مشاريع في أبوظبي.",
-  "defaultOgImage": "/assets/asas/og-default.jpg",
+  "defaultOgImage": "/brand/asas-mark-header.png",
   "canonicalBase": "https://www.asasengg.ae",
   "titleTemplateEn": "%page% | ASAS Engineering",
   "titleTemplateAr": "%page% | أساس للهندسة",
@@ -18,5 +18,11 @@
   "robotsIndex": true,
   "robotsFollow": true,
   "organizationJsonLd": true,
+  "sameAs": [
+    "https://www.linkedin.com/company/asas-engineering/home/",
+    "https://www.instagram.com/asas_engineering_consultancy/",
+    "https://www.facebook.com/profile.php?id=100063518202423",
+    "https://www.youtube.com/@AsasEngineering"
+  ],
   "updatedAt": "2026-09-12T00:00:00.000Z"
 }

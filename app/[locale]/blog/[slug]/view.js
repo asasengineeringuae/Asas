@@ -14,6 +14,8 @@ import {
   getPublicRelatedBlogPosts,
 } from '@/lib/cms/public-data';
 import {buildRouteMetadata} from '@/lib/cms/seo/build-metadata';
+import {buildArticleJsonLd, buildBreadcrumbJsonLd} from '@/lib/cms/seo/schema-builders';
+import JsonLd from '@/components/seo/JsonLd';
 
 export const dynamic = 'force-dynamic';
 
@@ -52,11 +54,33 @@ export default async function BlogPostPage({params}) {
   const related = await getPublicRelatedBlogPosts(slug, {limit: 3});
   const paragraphs = ar ? post.bodyAr : post.body;
 
+  const pageUrl = `https://www.asasengg.ae/${locale}/blog/${post.slug}`;
+
   return (
     <div className="blog-page blog-post-page">
+      <JsonLd
+        id="asas-article-schema"
+        data={buildArticleJsonLd({
+          headline: post.title,
+          headlineAr: post.titleAr,
+          description: post.excerpt || post.description,
+          descriptionAr: post.excerptAr || post.descriptionAr,
+          url: pageUrl,
+          image: post.cover,
+          datePublished: post.date,
+        })}
+      />
+      <JsonLd
+        id="asas-article-crumbs"
+        data={buildBreadcrumbJsonLd([
+          {name: ar ? 'الرئيسية' : 'Home', url: `https://www.asasengg.ae/${locale}`},
+          {name: ar ? 'المدونة' : 'Blog', url: `https://www.asasengg.ae/${locale}/blog`},
+          {name: ar ? post.titleAr : post.title, url: pageUrl},
+        ])}
+      />
       <section className="blog-post-hero">
         <div className="blog-post-hero-photo" aria-hidden="true">
-          <Image src={post.cover} alt="" fill priority sizes="100vw" />
+          <Image src={post.cover} alt={ar ? post.titleAr : post.title} fill priority sizes="100vw" />
         </div>
         <div className="blog-post-hero-veil" aria-hidden="true" />
         <Container>

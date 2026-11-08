@@ -23,10 +23,57 @@ const SECTION_LABELS = {
 const TABS = [
   {id: 'layout', label: 'Page layout'},
   {id: 'hero', label: 'Hero slides'},
-  {id: 'about', label: 'About block'},
-  {id: 'sectors', label: 'Sector cards'},
+  {id: 'about', label: 'About'},
+  {id: 'copy', label: 'Section copy'},
+  {id: 'sectors', label: 'Sectors'},
+  {id: 'why', label: 'Why ASAS'},
+  {id: 'portfolio', label: 'Portfolio'},
   {id: 'faqs', label: 'FAQs'},
 ];
+
+const COPY_FIELDS = [
+  ['eyebrow', 'Hero eyebrow'],
+  ['lede', 'Hero lede'],
+  ['start', 'Start CTA'],
+  ['work', 'Work CTA'],
+  ['sectorEyebrow', 'Sectors eyebrow'],
+  ['sectorTitle', 'Sectors title'],
+  ['sectorCopy', 'Sectors copy'],
+  ['sectorCta', 'Sectors CTA'],
+  ['processEyebrow', 'Process eyebrow'],
+  ['processTitle', 'Process title'],
+  ['processCopy', 'Process copy'],
+  ['archive', 'Portfolio eyebrow'],
+  ['archiveTitle', 'Portfolio title'],
+  ['archiveCopy', 'Portfolio copy'],
+  ['archiveCta', 'Portfolio CTA'],
+  ['featured', 'Featured label'],
+  ['featuredTitle', 'Featured title'],
+  ['featuredDesc', 'Featured description'],
+];
+
+function emptySlide() {
+  return {
+    id: `slide-${Date.now().toString(36)}`,
+    enabled: true,
+    image: '',
+    video: '',
+    crop: '50% 50%',
+    strip: '',
+    stripAr: '',
+    location: '',
+    locationAr: '',
+    title: 'New slide',
+    titleAr: '',
+    note: '',
+    noteAr: '',
+    slug: '',
+  };
+}
+
+function isVideoUrl(url) {
+  return /\.(mp4|webm|mov|m4v)(\?|$)/i.test(String(url || ''));
+}
 
 function Pair({en, ar, enValue, arValue, onEn, onAr, multiline = false, disabled}) {
   const Control = multiline ? 'textarea' : 'input';
@@ -127,6 +174,86 @@ export default function HomepageStudio({initialValue, canWrite}) {
     setMessage('');
   }
 
+  function updateCopy(locale, key, value) {
+    setDoc((current) => ({
+      ...current,
+      copy: {
+        ...(current.copy || {}),
+        [locale]: {
+          ...((current.copy || {})[locale] || {}),
+          [key]: value,
+        },
+      },
+    }));
+    setMessage('');
+  }
+
+  function updateWhy(index, patch) {
+    setDoc((current) => {
+      const whyPoints = [...(current.whyPoints || [])];
+      whyPoints[index] = {...whyPoints[index], ...patch};
+      return {...current, whyPoints};
+    });
+    setMessage('');
+  }
+
+  function addSlide() {
+    if (!canWrite) return;
+    setDoc((current) => ({...current, heroSlides: [...(current.heroSlides || []), emptySlide()]}));
+    setSlideIndex((doc.heroSlides || []).length);
+    setMessage('');
+  }
+
+  function removeSlide(index) {
+    if (!canWrite) return;
+    setDoc((current) => {
+      const heroSlides = (current.heroSlides || []).filter((_, i) => i !== index);
+      return {...current, heroSlides};
+    });
+    setSlideIndex((current) => Math.max(0, Math.min(current, (slides.length || 1) - 2)));
+  }
+
+  function addFaq() {
+    if (!canWrite) return;
+    setDoc((current) => ({
+      ...current,
+      faqs: [
+        ...(current.faqs || []),
+        {
+          id: `faq-${Date.now().toString(36)}`,
+          questionEn: '',
+          questionAr: '',
+          answerEn: '',
+          answerAr: '',
+        },
+      ],
+    }));
+  }
+
+  function removeFaq(index) {
+    setDoc((current) => ({
+      ...current,
+      faqs: (current.faqs || []).filter((_, i) => i !== index),
+    }));
+  }
+
+  function addWhy() {
+    setDoc((current) => ({
+      ...current,
+      whyPoints: [
+        ...(current.whyPoints || []),
+        {id: `why-${Date.now().toString(36)}`, titleEn: '', titleAr: '', bodyEn: '', bodyAr: ''},
+      ],
+    }));
+  }
+
+  function removeWhy(index) {
+    setDoc((current) => ({
+      ...current,
+      whyPoints: (current.whyPoints || []).filter((_, i) => i !== index),
+    }));
+  }
+
   async function onSave() {
     if (!canWrite) return;
     setSaving(true);
@@ -212,20 +339,47 @@ export default function HomepageStudio({initialValue, canWrite}) {
                   <button
                     key={item.id || index}
                     type="button"
-                    className={`hps-chip${slideIndex === index ? ' is-active' : ''}`}
+                    className={`hps-chip${slideIndex === index ? ' is-active' : ''}${item.enabled === false ? ' is-off' : ''}`}
                     onClick={() => setSlideIndex(index)}
                   >
                     Slide {index + 1}
+                    {item.enabled === false ? ' · off' : ''}
                   </button>
                 ))}
+                {canWrite ? (
+                  <button type="button" className="hps-chip" onClick={addSlide}>
+                    + Add slide
+                  </button>
+                ) : null}
               </div>
               {slide ? (
                 <>
+                  <label className="adm-switch">
+                    <input
+                      type="checkbox"
+                      checked={slide.enabled !== false}
+                      disabled={!canWrite}
+                      onChange={(e) => updateHeroSlide(slideIndex, {enabled: e.target.checked})}
+                    />
+                    <span className="adm-switch-track" aria-hidden />
+                    <span>{slide.enabled !== false ? 'Active on website' : 'Hidden'}</span>
+                  </label>
                   <MediaPicker
-                    label="Slide image"
-                    value={slide.image || ''}
+                    label="Slide image or video"
+                    hint="Upload a photo or an MP4/WebM video for this slide."
+                    value={slide.video || slide.image || ''}
                     canWrite={canWrite}
-                    onChange={(url) => updateHeroSlide(slideIndex, {image: url || ''})}
+                    enableCrop={!slide.video && !isVideoUrl(slide.image)}
+                    enableFocal={!slide.video && !isVideoUrl(slide.image)}
+                    onChange={(url, item) => {
+                      const video = item?.mime?.startsWith('video/') || isVideoUrl(url);
+                      if (!url) {
+                        updateHeroSlide(slideIndex, {image: '', video: ''});
+                        return;
+                      }
+                      if (video) updateHeroSlide(slideIndex, {video: url});
+                      else updateHeroSlide(slideIndex, {image: url, video: ''});
+                    }}
                     focalValue={slide.crop || '50% 50%'}
                     onFocalChange={(crop) => updateHeroSlide(slideIndex, {crop})}
                   />
@@ -257,11 +411,46 @@ export default function HomepageStudio({initialValue, canWrite}) {
                     onAr={(v) => updateHeroSlide(slideIndex, {locationAr: v})}
                     disabled={!canWrite}
                   />
+                  <Pair
+                    en="Strip label"
+                    ar="شريط"
+                    enValue={slide.strip}
+                    arValue={slide.stripAr}
+                    onEn={(v) => updateHeroSlide(slideIndex, {strip: v})}
+                    onAr={(v) => updateHeroSlide(slideIndex, {stripAr: v})}
+                    disabled={!canWrite}
+                  />
+                  {canWrite && slides.length > 1 ? (
+                    <button type="button" className="adm-btn-danger" onClick={() => removeSlide(slideIndex)}>
+                      Remove this slide
+                    </button>
+                  ) : null}
                 </>
               ) : (
-                <p className="adm-section-help">No hero slides yet.</p>
+                <p className="adm-section-help">No hero slides yet. Add a slide to start.</p>
               )}
             </>
+          ) : null}
+
+          {tab === 'copy' ? (
+            <div className="hps-list">
+              <p className="adm-section-help" style={{margin: 0}}>
+                Headings and buttons for homepage sections. Clients, services, team and testimonials content is edited in those admin pages; you can still hide those blocks under Page layout.
+              </p>
+              {COPY_FIELDS.map(([key, label]) => (
+                <Pair
+                  key={key}
+                  en={label}
+                  ar={`${label} (AR)`}
+                  multiline={/copy|lede|desc/i.test(key)}
+                  enValue={doc.copy?.en?.[key]}
+                  arValue={doc.copy?.ar?.[key]}
+                  onEn={(v) => updateCopy('en', key, v)}
+                  onAr={(v) => updateCopy('ar', key, v)}
+                  disabled={!canWrite}
+                />
+              ))}
+            </div>
           ) : null}
 
           {tab === 'about' ? (
@@ -343,6 +532,75 @@ export default function HomepageStudio({initialValue, canWrite}) {
             </div>
           ) : null}
 
+          {tab === 'why' ? (
+            <div className="hps-list">
+              {(doc.whyPoints || []).map((item, index) => (
+                <div key={item.id || index} className="pcs-body" style={{padding: 0}}>
+                  <strong>Point {index + 1}</strong>
+                  <Pair
+                    en="Title"
+                    ar="العنوان"
+                    enValue={item.titleEn}
+                    arValue={item.titleAr}
+                    onEn={(v) => updateWhy(index, {titleEn: v})}
+                    onAr={(v) => updateWhy(index, {titleAr: v})}
+                    disabled={!canWrite}
+                  />
+                  <Pair
+                    en="Body"
+                    ar="النص"
+                    multiline
+                    enValue={item.bodyEn}
+                    arValue={item.bodyAr}
+                    onEn={(v) => updateWhy(index, {bodyEn: v})}
+                    onAr={(v) => updateWhy(index, {bodyAr: v})}
+                    disabled={!canWrite}
+                  />
+                  {canWrite ? (
+                    <button type="button" className="adm-btn-ghost" onClick={() => removeWhy(index)}>
+                      Remove
+                    </button>
+                  ) : null}
+                </div>
+              ))}
+              {canWrite ? (
+                <button type="button" className="adm-btn" onClick={addWhy}>
+                  Add point
+                </button>
+              ) : null}
+            </div>
+          ) : null}
+
+          {tab === 'portfolio' ? (
+            <div className="hps-list">
+              <label className="pcs-field">
+                <span>Featured project slug</span>
+                <input
+                  value={doc.portfolioFeaturedSlug || ''}
+                  disabled={!canWrite}
+                  onChange={(e) => setDoc((current) => ({...current, portfolioFeaturedSlug: e.target.value}))}
+                />
+              </label>
+              <label className="pcs-field">
+                <span>Grid project slugs (one per line)</span>
+                <textarea
+                  rows={5}
+                  value={(doc.portfolioGridSlugs || []).join('\n')}
+                  disabled={!canWrite}
+                  onChange={(e) =>
+                    setDoc((current) => ({
+                      ...current,
+                      portfolioGridSlugs: e.target.value
+                        .split('\n')
+                        .map((line) => line.trim())
+                        .filter(Boolean),
+                    }))
+                  }
+                />
+              </label>
+            </div>
+          ) : null}
+
           {tab === 'faqs' ? (
             <div className="hps-list">
               {faqs.map((faq, index) => (
@@ -367,8 +625,18 @@ export default function HomepageStudio({initialValue, canWrite}) {
                     onAr={(v) => updateFaq(index, {answerAr: v})}
                     disabled={!canWrite}
                   />
+                  {canWrite ? (
+                    <button type="button" className="adm-btn-ghost" onClick={() => removeFaq(index)}>
+                      Remove
+                    </button>
+                  ) : null}
                 </div>
               ))}
+              {canWrite ? (
+                <button type="button" className="adm-btn" onClick={addFaq}>
+                  Add question
+                </button>
+              ) : null}
             </div>
           ) : null}
         </div>

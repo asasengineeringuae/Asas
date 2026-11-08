@@ -20,14 +20,6 @@ export async function getPublishedTeamMembers() {
   return listTeamMembers({includeDrafts: false});
 }
 
-function hasRealPortrait(member) {
-  const src = member?.profile_image || '';
-  if (!src) return false;
-  if (/\.svg($|\?)/i.test(src)) return false;
-  if (/\/images\/team\/demo-/i.test(src)) return false;
-  return true;
-}
-
 export async function getFeaturedTeamMembers({limit = 6} = {}) {
   const members = await getPublishedTeamMembers();
   const featured = members.filter((member) => member.featured);
@@ -35,14 +27,12 @@ export async function getFeaturedTeamMembers({limit = 6} = {}) {
   return source.slice(0, limit);
 }
 
-/** Homepage: featured first, real portraits preferred, then display_order. */
+/** Homepage: featured members in display_order (left to right). */
 export async function getHomepageTeamMembers({limit = 4} = {}) {
   const members = await getPublishedTeamMembers();
   const featured = members.filter((member) => member.featured);
   const source = featured.length ? featured : members;
-  const withPhoto = source.filter(hasRealPortrait);
-  const withoutPhoto = source.filter((member) => !hasRealPortrait(member));
-  return [...withPhoto, ...withoutPhoto].slice(0, limit);
+  return source.slice(0, limit);
 }
 
 export async function getLeadershipTeamMembers() {

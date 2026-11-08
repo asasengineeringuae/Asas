@@ -70,17 +70,16 @@
     {
       "id": "four-towers",
       "slug": "four-towers-al-nahda",
-      "image": "/assets/asas/generated-editorial/asas-editorial-homepage-hero.webp",
-      "imageStatus": "AUTHENTIC_IMAGE_PENDING",
-      "crop": "68% 38%",
+      "image": "/assets/asas/projects-client/four-towers-al-nahda/four-towers-al-nahda-01.jpg",
+      "crop": "50% 40%",
       "strip": "Four Towers",
       "stripAr": "أربعة أبراج",
       "location": "Al Nahda, Sharjah",
       "locationAr": "النهدة، الشارقة",
       "title": "Four Towers, Al Nahda",
       "titleAr": "أربعة أبراج، النهدة",
-      "note": "A four-tower composition over a shared podium with coordinated architectural, structural and electromechanical design.",
-      "noteAr": "تكوين من أربعة أبراج فوق منصة مشتركة بتصميم معماري وإنشائي وكهروميكانيكي منسّق.",
+      "note": "Four towers consisting of 3 basement levels, 6 podium levels, 6 parking levels and 37 floors. Architectural, civil & structural, MEP, Etisalat, drainage, quantities and specification design.",
+      "noteAr": "أربعة أبراج تتكون من 3 طوابق سفلية و6 طوابق منصة و6 طوابق مواقف و37 طابقاً. يشمل نطاق العمل التصميم المعماري والإنشائي والكهروميكانيكي والاتصالات والصرف والكميات والمواصفات.",
       "facts": [
         [
           "Towers",
@@ -111,173 +110,170 @@
       ]
     },
     {
-      "id": "traffic",
-      "slug": "traffic-access-studies",
-      "image": "/assets/asas/real-projects/asas-traffic-access-studies-portfolio.webp",
-      "crop": "50% 50%",
-      "strip": "Infrastructure",
-      "stripAr": "بنية تحتية",
-      "location": "Khalifa City, Abu Dhabi",
-      "locationAr": "مدينة خليفة، أبوظبي",
-      "title": "Traffic & Access Studies",
-      "titleAr": "دراسات المرور والمداخل",
-      "note": "Parking, circulation and municipality-review documentation from the official ASAS portfolio.",
-      "noteAr": "مواقف وحركة وتوثيق مراجعة البلدية من أعمال أساس للاستشارات الهندسية وإدارة المشاريع الرسمية.",
+      "id": "amwaj",
+      "slug": "amwaj-tower-al-raha",
+      "image": "/assets/asas/projects-client/amwaj-tower-al-raha/amwaj-tower-al-raha-01.jpg",
+      "crop": "50% 45%",
+      "strip": "Towers",
+      "stripAr": "أبراج",
+      "location": "Al Raha Beach, Abu Dhabi",
+      "locationAr": "شاطئ الراحة، أبوظبي",
+      "title": "Amwaj Tower, Al Raha Beach",
+      "titleAr": "برج أمواج، شاطئ الراحة",
+      "note": "Amwaj Tower at Al Raha Beach: 3 basement levels, ground, mezzanine and 13 floors.",
+      "noteAr": "برج أمواج في شاطئ الراحة: 3 طوابق سفلية وطابق أرضي وميزانين و13 طابقاً.",
       "facts": [
         [
-          "Sector",
-          "Infrastructure"
+          "Form",
+          "3B+G+M+13"
         ],
         [
-          "Focus",
-          "Access & parking"
+          "Plot",
+          "2-A"
         ],
         [
-          "Type",
-          "Planning study"
+          "Place",
+          "Al Raha"
         ]
       ],
       "factsAr": [
         [
-          "القطاع",
-          "البنية التحتية"
+          "التكوين",
+          "3B+G+M+13"
         ],
         [
-          "التركيز",
-          "المداخل والمواقف"
+          "القطعة",
+          "2-A"
         ],
         [
-          "النوع",
-          "دراسة تخطيطية"
+          "المكان",
+          "الراحة"
         ]
       ]
     },
     {
-      "id": "school",
-      "slug": "culture-private-school",
-      "image": "/assets/asas/roles/asas-role-home-slide-education.webp",
-      "imageStatus": "AUTHENTIC_IMAGE_PENDING",
-      "crop": "35% 40%",
-      "strip": "Education",
-      "stripAr": "تعليم",
-      "location": "Abu Dhabi",
-      "locationAr": "أبوظبي",
-      "title": "Culture Private School",
-      "titleAr": "مدرسة الثقافة الخاصة",
-      "note": "Campus master planning and educational facilities within the ASAS selected portfolio.",
-      "noteAr": "تخطيط الحرم والمرافق التعليمية ضمن أعمال أساس للاستشارات الهندسية وإدارة المشاريع المختارة.",
+      "id": "hotel",
+      "slug": "hotel-abu-dhabi-island-e10",
+      "image": "/assets/asas/projects-client/hotel-abu-dhabi-island-e10/hotel-abu-dhabi-island-e10-01.jpg",
+      "crop": "50% 40%",
+      "strip": "Hospitality",
+      "stripAr": "ضيافة",
+      "location": "Abu Dhabi Island",
+      "locationAr": "جزيرة أبوظبي",
+      "title": "Hotel — Abu Dhabi Island E10",
+      "titleAr": "فندق — جزيرة أبوظبي E10",
+      "note": "Hotel on Abu Dhabi Island, sector E10. Design: architecture, civil & structural, 3D, electrical, water supply, AC, Etisalat, drainage, quantities and specification.",
+      "noteAr": "فندق في جزيرة أبوظبي، القطاع E10. التصميم: معماري وإنشائي و3D وكهرباء ومياه وتكييف واتصالات وصرف وكميات ومواصفات.",
       "facts": [
         [
+          "Type",
+          "Hotel"
+        ],
+        [
           "Sector",
-          "Education"
+          "E10"
         ],
         [
           "Scope",
-          "Planning & design"
-        ],
-        [
-          "Office",
-          "Abu Dhabi"
+          "Full design"
         ]
       ],
       "factsAr": [
-        [
-          "القطاع",
-          "التعليم"
-        ],
-        [
-          "النطاق",
-          "تخطيط وتصميم"
-        ],
-        [
-          "المكتب",
-          "أبوظبي"
-        ]
-      ]
-    },
-    {
-      "id": "compounds",
-      "slug": "compound-villas-portfolio",
-      "image": "/assets/asas/roles/asas-role-home-slide-villas.webp",
-      "imageStatus": "AUTHENTIC_IMAGE_PENDING",
-      "crop": "55% 45%",
-      "strip": "Residential",
-      "stripAr": "سكني",
-      "location": "Khalifa City, Abu Dhabi",
-      "locationAr": "مدينة خليفة، أبوظبي",
-      "title": "Compound Villas Portfolio",
-      "titleAr": "مجموعة مشاريع مجمعات الفلل",
-      "note": "Multi-unit villa compounds planned as one architectural family with shared access and services.",
-      "noteAr": "مجمعات فلل متعددة الوحدات كعائلة معمارية واحدة مع مداخل وخدمات مشتركة.",
-      "facts": [
-        [
-          "Sector",
-          "Compounds"
-        ],
-        [
-          "Scope",
-          "Architecture"
-        ],
-        [
-          "Office",
-          "Abu Dhabi"
-        ]
-      ],
-      "factsAr": [
-        [
-          "القطاع",
-          "المجمعات"
-        ],
-        [
-          "النطاق",
-          "عمارة"
-        ],
-        [
-          "المكتب",
-          "أبوظبي"
-        ]
-      ]
-    },
-    {
-      "id": "interiors",
-      "slug": "reception-hall-private-villa",
-      "image": "/assets/asas/roles/asas-role-home-slide-interiors.webp",
-      "imageStatus": "AUTHENTIC_IMAGE_PENDING",
-      "crop": "40% 50%",
-      "strip": "Interiors",
-      "stripAr": "داخلي",
-      "location": "Abu Dhabi",
-      "locationAr": "أبوظبي",
-      "title": "Reception Hall — Private Villa",
-      "titleAr": "قاعة استقبال — فيلا خاصة",
-      "note": "Residential reception interiors with classical detailing from the ASAS hospitality portfolio.",
-      "noteAr": "تصميم داخلي لقاعة استقبال سكنية بتفاصيل كلاسيكية من أعمال أساس للاستشارات الهندسية وإدارة المشاريع.",
-      "facts": [
-        [
-          "Sector",
-          "Interiors"
-        ],
-        [
-          "Type",
-          "Interior fit-out"
-        ],
-        [
-          "Office",
-          "Abu Dhabi"
-        ]
-      ],
-      "factsAr": [
-        [
-          "القطاع",
-          "التصميم الداخلي"
-        ],
         [
           "النوع",
-          "تجهيز داخلي"
+          "فندق"
         ],
         [
-          "المكتب",
-          "أبوظبي"
+          "القطاع",
+          "E10"
+        ],
+        [
+          "النطاق",
+          "تصميم كامل"
+        ]
+      ]
+    },
+    {
+      "id": "sport",
+      "slug": "sport-complex-khalifa-se38",
+      "image": "/assets/asas/projects-client/sport-complex-khalifa-se38/sport-complex-khalifa-se38-01.jpg",
+      "crop": "50% 45%",
+      "strip": "Sport",
+      "stripAr": "رياضي",
+      "location": "Khalifa City, Abu Dhabi",
+      "locationAr": "مدينة خليفة، أبوظبي",
+      "title": "Sport Complex — Khalifa City SE38",
+      "titleAr": "مجمع رياضي — مدينة خليفة SE38",
+      "note": "Sport complex in Khalifa City SE38. Scope: architectural, civil & structural, 3D modelling, electrical, water supply, AC, Etisalat, drainage, quantity surveying and specification.",
+      "noteAr": "مجمع رياضي في مدينة خليفة SE38. النطاق: معماري، إنشائي، نمذجة ثلاثية الأبعاد، كهرباء، مياه، تكييف، اتصالات، صرف، كميات ومواصفات.",
+      "facts": [
+        [
+          "Type",
+          "Sport complex"
+        ],
+        [
+          "Sector",
+          "SE38"
+        ],
+        [
+          "City",
+          "Khalifa"
+        ]
+      ],
+      "factsAr": [
+        [
+          "النوع",
+          "مجمع رياضي"
+        ],
+        [
+          "القطاع",
+          "SE38"
+        ],
+        [
+          "المدينة",
+          "خليفة"
+        ]
+      ]
+    },
+    {
+      "id": "mosque",
+      "slug": "mosque-al-shamkha-sh9",
+      "image": "/assets/asas/projects-client/mosque-al-shamkha-sh9/mosque-al-shamkha-sh9-01.jpg",
+      "crop": "50% 40%",
+      "strip": "Worship",
+      "stripAr": "مساجد",
+      "location": "Al Shamkha, Abu Dhabi",
+      "locationAr": "الشامخة، أبوظبي",
+      "title": "Mosque — Al Shamkha SH9",
+      "titleAr": "مسجد — الشامخة SH9",
+      "note": "Mosque in Al Shamkha, sector SH9. Design includes architecture, civil & structural, 3D, electrical, water, AC, civil defence, Etisalat, drainage, CCTV, quantities and specification.",
+      "noteAr": "مسجد في الشامخة، القطاع SH9. التصميم يشمل المعماري والإنشائي و3D والكهرباء والمياه والتكييف والدفاع المدني والاتصالات والصرف والكاميرات والكميات والمواصفات.",
+      "facts": [
+        [
+          "Type",
+          "Mosque"
+        ],
+        [
+          "Sector",
+          "SH9"
+        ],
+        [
+          "Extras",
+          "Civil defence"
+        ]
+      ],
+      "factsAr": [
+        [
+          "النوع",
+          "مسجد"
+        ],
+        [
+          "القطاع",
+          "SH9"
+        ],
+        [
+          "إضافي",
+          "دفاع مدني"
         ]
       ]
     }
@@ -385,8 +381,8 @@
       "archiveCopy": "A featured project with supporting work across towers, infrastructure, education, compounds and interiors.",
       "archiveCta": "View all projects",
       "featured": "Selected project",
-      "featuredTitle": "Traffic & Access Studies",
-      "featuredDesc": "Parking layouts, kerb and sewer adjustments, one-way circulation, service bays, speed humps and road marking prepared for municipality review.",
+      "featuredTitle": "Four Towers, Al Nahda",
+      "featuredDesc": "Four towers consisting of 3 basement levels, 6 podium levels, 6 parking levels and 37 floors. Architectural, civil & structural, MEP, Etisalat, drainage, quantities and specification design.",
       "viewProject": "View project"
     },
     "ar": {
@@ -408,8 +404,8 @@
       "archiveCopy": "مشروع مختار مع أعمال داعمة عبر الأبراج والبنية التحتية والتعليم والمجمعات والتصميم الداخلي.",
       "archiveCta": "عرض كل المشاريع",
       "featured": "مشروع مختار",
-      "featuredTitle": "دراسات المرور والمداخل",
-      "featuredDesc": "مخططات مواقف وتعديلات الأرصفة والصرف وحركة الاتجاه الواحد ومناطق الخدمة ومطبات السرعة وعلامات الطرق، أُعدت لمراجعة البلدية.",
+      "featuredTitle": "أربعة أبراج، النهدة",
+      "featuredDesc": "أربعة أبراج تتكون من 3 طوابق سفلية و6 طوابق منصة و6 طوابق مواقف و37 طابقاً. يشمل نطاق العمل التصميم المعماري والإنشائي والكهروميكانيكي والاتصالات والصرف والكميات والمواصفات.",
       "viewProject": "عرض المشروع"
     }
   },
@@ -480,11 +476,11 @@
       "answerAr": "تشمل دورة الحياة الموثقة الفكرة والموجز والتصميم والعطاء والتنفيذ وحصر الملاحظات والتسليم النهائي والإغلاق المالي والمراحل المستقبلية."
     }
   ],
-  "portfolioFeaturedSlug": "traffic-access-studies",
+  "portfolioFeaturedSlug": "four-towers-al-nahda",
   "portfolioGridSlugs": [
-    "culture-private-school",
-    "compound-villas-portfolio",
-    "residential-villa-al-shamkha-sh3",
-    "reception-hall-private-villa"
+    "amwaj-tower-al-raha",
+    "hotel-abu-dhabi-island-e10",
+    "mosque-al-shamkha-sh9",
+    "public-bathroom-louvre-saadiyat"
   ]
 }

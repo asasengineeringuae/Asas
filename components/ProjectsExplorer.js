@@ -17,11 +17,11 @@ import {
   Warehouse,
   X,
 } from 'lucide-react';
-import {projectCategories, projectKinds, projects} from '@/data/projects';
+import {projectCategories, projectKinds} from '@/data/projects';
 import ProjectVisualFallback from '@/components/ProjectVisualFallback';
 import {NextChevron, PrevChevron} from '@/components/icons/DirectionalChevrons';
 
-const featuredSlug = 'traffic-access-studies';
+const featuredSlug = 'four-towers-al-nahda';
 const pageSize = 9;
 const EASE = [0.16, 1, 0.3, 1];
 
@@ -31,6 +31,7 @@ const shortFilterLabels = {
   buildings: 'Buildings',
   industrial: 'Industrial',
   infrastructure: 'Infrastructure',
+  mosques: 'Mosques',
   education: 'Schools',
   'compound-villas': 'Compounds',
   'private-villas': 'Private Villas',
@@ -44,6 +45,7 @@ const shortFilterLabelsAr = {
   buildings: 'المباني',
   industrial: 'الصناعي',
   infrastructure: 'البنية التحتية',
+  mosques: 'المساجد',
   education: 'المدارس',
   'compound-villas': 'المجمعات',
   'private-villas': 'الفلل الخاصة',
@@ -57,6 +59,7 @@ const filterIcons = {
   buildings: Building2,
   industrial: Factory,
   infrastructure: Warehouse,
+  mosques: Landmark,
   education: School,
   'compound-villas': Trees,
   'private-villas': Home,
@@ -141,6 +144,7 @@ function FilterList({categories, counts, active, onSelect, ar}) {
     <div className="pl-filter-list" role="tablist" aria-orientation="vertical">
       {categories.map((category) => {
         const count = counts[category.slug] || 0;
+        if (category.slug !== 'all' && count === 0) return null;
         const label = ar
           ? shortFilterLabelsAr[category.slug] || category.titleAr
           : shortFilterLabels[category.slug] || category.title;
@@ -167,7 +171,7 @@ function FilterList({categories, counts, active, onSelect, ar}) {
 
 export default function ProjectsExplorer({locale, items}) {
   const ar = locale === 'ar';
-  const list = items?.length ? items : projects;
+  const list = items || [];
   const reduced = useReducedMotion();
   const [active, setActive] = useState('all');
   const [page, setPage] = useState(1);

@@ -262,14 +262,26 @@ export default function HeroSlider({locale, slides}) {
                     : {duration: 0.7}
                 }
               >
-                <Image
-                  src={slide.image}
-                  alt=""
-                  fill
-                  priority={i === 0}
-                  sizes="100vw"
-                  style={{objectPosition: slide.crop || '55% 40%'}}
-                />
+                {slide.video ? (
+                  <video
+                    src={slide.video}
+                    poster={slide.image || undefined}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    style={{objectPosition: slide.crop || '55% 40%'}}
+                  />
+                ) : (
+                  <Image
+                    src={slide.image}
+                    alt=""
+                    fill
+                    priority={i === 0}
+                    sizes="100vw"
+                    style={{objectPosition: slide.crop || '55% 40%'}}
+                  />
+                )}
               </motion.div>
             </motion.div>
           );

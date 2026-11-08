@@ -14,6 +14,10 @@ function isDocumentItem(item) {
   return String(item?.mime || '') === 'application/pdf' || /\.pdf$/i.test(item?.url || '');
 }
 
+function isVideoItem(item) {
+  return String(item?.mime || '').startsWith('video/') || /\.(mp4|webm|mov|m4v)$/i.test(item?.url || '');
+}
+
 function itemLabel(item) {
   return item?.titleEn || item?.filename || item?.url || 'Untitled';
 }
@@ -61,15 +65,16 @@ export default function MediaLibraryDialog({
 
   const visible = useMemo(() => {
     if (mode === 'DOCUMENT') return items.filter(isDocumentItem);
-    if (mode === 'IMAGE') return items.filter(isImageItem);
+    if (mode === 'VIDEO') return items.filter(isVideoItem);
+    if (mode === 'IMAGE') return items.filter((item) => isImageItem(item) || isVideoItem(item));
     return items;
   }, [items, mode]);
 
   async function uploadFile(file) {
     if (!canWrite || !file) return;
     const mime = String(file.type || '').toLowerCase();
-    if (mode === 'IMAGE' && !mime.startsWith('image/')) {
-      setError('Please choose an image file (JPEG, PNG, WebP, or GIF).');
+    if (mode === 'IMAGE' && !mime.startsWith('image/') && !mime.startsWith('video/')) {
+      setError('Please choose an image or video file.');
       return;
     }
     if (mode === 'DOCUMENT' && mime !== 'application/pdf') {
@@ -157,7 +162,7 @@ export default function MediaLibraryDialog({
                 accept={
                   mode === 'DOCUMENT'
                     ? 'application/pdf,.pdf'
-                    : 'image/jpeg,image/png,image/webp,image/gif,.jpg,.jpeg,.png,.webp,.gif'
+                    : 'image/jpeg,image/png,image/webp,image/gif,video/mp4,video/webm,video/quicktime,.jpg,.jpeg,.png,.webp,.gif,.mp4,.webm,.mov'
                 }
                 hidden
                 onChange={(e) => {
@@ -207,6 +212,8 @@ export default function MediaLibraryDialog({
                     {isImageItem(item) ? (
                       // eslint-disable-next-line @next/next/no-img-element
                       <img src={item.url} alt={adminText(item.altEn || itemLabel(item))} />
+                    ) : isVideoItem(item) ? (
+                      <span className="adm-media-file-badge">{adminText('Video')}</span>
                     ) : (
                       <span className="adm-media-file-badge">{adminText("PDF")}</span>
                     )}

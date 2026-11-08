@@ -49,6 +49,14 @@ export const sectors = [
     descriptionAr: 'فلل خاصة وسكنية وقصور ومجمعات متعددة الوحدات مع تنسيق المداخل والمواقف والخدمات.',
   },
   {
+    slug: 'mosques-places-of-worship',
+    title: 'Mosques & Places of Worship',
+    titleAr: 'المساجد ودور العبادة',
+    projectCategory: 'mosques',
+    description: 'Mosque design including architecture, structure, MEP, civil defence and CCTV.',
+    descriptionAr: 'تصميم المساجد شاملاً المعماري والإنشائي والكهروميكانيك والدفاع المدني والكاميرات.',
+  },
+  {
     slug: 'interior-hospitality-retail',
     title: 'Interiors, Hospitality & Retail',
     titleAr: 'التصميم الداخلي والضيافة والتجزئة',

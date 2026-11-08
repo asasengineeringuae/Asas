@@ -5,6 +5,9 @@ import path from 'path';
 const nextConfig = {
   // Allow both localhost and 127.0.0.1 in dev (Next 16 blocks cross-origin /_next by default)
   allowedDevOrigins: ['127.0.0.1', 'localhost'],
+  outputFileTracingIncludes: {
+    '*': ['./content/**/*'],
+  },
   images: {
     // Next 16 defaults to qualities: [75] only — other q= values 400 the optimizer
     qualities: [60, 75, 90, 92, 100],
@@ -17,6 +20,11 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'images.unsplash.com',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: '*.public.blob.vercel-storage.com',
         pathname: '/**',
       },
     ],

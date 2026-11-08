@@ -45,6 +45,10 @@
   color: #fff;
 }
 
+.hps-chip.is-off {
+  opacity: 0.55;
+}
+
 .hps-slides {
   display: flex;
   flex-wrap: wrap;

@@ -11,6 +11,10 @@ function isImageUrl(url) {
   return /\.(jpe?g|png|webp|gif|avif|svg)(\?|$)/i.test(String(url || ''));
 }
 
+function isVideoUrl(url) {
+  return /\.(mp4|webm|mov|m4v)(\?|$)/i.test(String(url || ''));
+}
+
 /**
  * Standard image field for admin:
  * - Choose / replace / remove via Media Library
@@ -33,7 +37,8 @@ export default function MediaPicker({
   const [open, setOpen] = useState(false);
   const [cropOpen, setCropOpen] = useState(false);
   const hasValue = Boolean(value);
-  const isImage = mode === 'IMAGE' || isImageUrl(value);
+  const isVideo = mode === 'VIDEO' || isVideoUrl(value);
+  const isImage = !isVideo && (mode === 'IMAGE' || isImageUrl(value));
   const showImage = hasValue && isImage;
   const canEditImage = Boolean(canWrite && showImage);
   const showFocal = Boolean(enableFocal && showImage && typeof onFocalChange === 'function');
@@ -59,6 +64,8 @@ export default function MediaPicker({
             alt={adminText("")}
             style={{objectPosition: focalValue || '50% 50%', objectFit: 'cover'}}
           />
+        ) : isVideo && hasValue ? (
+          <video src={value} muted playsInline controls style={{width: '100%', height: '100%', objectFit: 'cover'}} />
         ) : hasValue ? (
           <div className="adm-media-picker-file">
             <strong>{adminText(mode === 'DOCUMENT' ? 'Selected PDF' : 'Selected file')}</strong>

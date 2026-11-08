@@ -9,6 +9,7 @@ import {services} from '@/data/services';
 import ThemeLogo from '@/components/theme/ThemeLogo';
 import SocialIconLinks from '@/components/social/SocialIconLinks';
 import {t, tNav} from '@/lib/i18n/ui';
+import {openCookieSettings} from '@/lib/cookies/consent';
 
 const EASE = [0.16, 1, 0.3, 1];
 
@@ -229,6 +230,10 @@ export default function Footer({
             <Link href={`/${locale}/privacy`}>{t('privacy', locale)}</Link>
             <i aria-hidden="true">·</i>
             <Link href={`/${locale}/terms`}>{t('terms', locale)}</Link>
+            <i aria-hidden="true">·</i>
+            <button type="button" className="cookie-settings-btn" onClick={openCookieSettings}>
+              {t('cookieSettings', locale)}
+            </button>
           </span>
         </motion.div>
       </div>

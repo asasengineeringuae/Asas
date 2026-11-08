@@ -1,0 +1,137 @@
+.cookie-consent {
+  position: fixed;
+  inset-inline: 16px;
+  bottom: 16px;
+  z-index: 80;
+  max-width: 720px;
+  margin-inline: auto;
+  left: 16px;
+  right: 16px;
+  color: #f4f1ea;
+  background: #070463;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  box-shadow: 0 18px 48px rgba(7, 4, 99, 0.28);
+}
+
+.cookie-consent-inner {
+  display: grid;
+  gap: 16px;
+  padding: 18px 20px 16px;
+}
+
+.cookie-consent-kicker {
+  margin: 0 0 6px;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #d9c7a3;
+}
+
+.cookie-consent-copy p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.55;
+  color: rgba(244, 241, 234, 0.88);
+}
+
+.cookie-consent-copy a {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.cookie-consent-options {
+  display: grid;
+  gap: 10px;
+}
+
+.cookie-opt {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  margin: 0;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.06);
+  cursor: pointer;
+}
+
+.cookie-opt input {
+  margin-top: 3px;
+  accent-color: #a02315;
+}
+
+.cookie-opt strong {
+  display: block;
+  font-size: 13px;
+}
+
+.cookie-opt em {
+  display: block;
+  margin-top: 2px;
+  font-style: normal;
+  font-size: 12px;
+  color: rgba(244, 241, 234, 0.7);
+}
+
+.cookie-consent-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.cookie-btn {
+  min-height: 40px;
+  padding: 0 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.cookie-btn-ghost {
+  color: #fff;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+}
+
+.cookie-btn-primary {
+  color: #fff;
+  background: #a02315;
+  border: 1px solid #a02315;
+}
+
+.cookie-settings-btn {
+  display: inline;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+html[dir='rtl'] .cookie-consent-actions {
+  justify-content: flex-start;
+}
+
+@media (max-width: 720px) {
+  .cookie-consent {
+    inset-inline: 10px;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+  }
+
+  .cookie-consent-actions {
+    justify-content: stretch;
+  }
+
+  .cookie-btn {
+    flex: 1 1 140px;
+  }
+}

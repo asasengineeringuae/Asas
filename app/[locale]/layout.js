@@ -20,6 +20,7 @@ import {
 import {normalizeBranding} from '@/lib/cms/branding';
 import {getSeoSettings} from '@/lib/cms/seo-store';
 import {buildOrganizationJsonLd, buildWebSiteJsonLd} from '@/lib/cms/seo/schema-builders';
+import CookieConsent from '@/components/cookies/CookieConsent';
 
 export const dynamic = 'force-dynamic';
 
@@ -73,6 +74,7 @@ export default async function LocaleLayout({children, params}) {
 
   const gtmId = seoSettings.googleTagManagerId || '';
   const gaId = seoSettings.googleAnalyticsId || '';
+  const metaPixelId = seoSettings.metaPixelId || '';
 
   return (
     <div dir={ar ? 'rtl' : 'ltr'} lang={locale} data-locale={locale}>
@@ -84,26 +86,6 @@ export default async function LocaleLayout({children, params}) {
           dangerouslySetInnerHTML={{__html: JSON.stringify(schema)}}
         />
       ))}
-      {gtmId ? (
-        <Script id="asas-gtm" strategy="afterInteractive">{`
-          (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-          })(window,document,'script','dataLayer','${gtmId}');
-        `}</Script>
-      ) : null}
-      {gaId && !gtmId ? (
-        <>
-          <Script src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`} strategy="afterInteractive" />
-          <Script id="asas-ga" strategy="afterInteractive">{`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${gaId}');
-          `}</Script>
-        </>
-      ) : null}
       <a className="skip" href="#main">
         {t('skipToContent', locale)}
       </a>
@@ -129,6 +111,7 @@ export default async function LocaleLayout({children, params}) {
       <AIAssistantMount locale={locale} />
       <SiteTour locale={locale} />
       <WhatsApp locale={locale} companyData={company} />
+      <CookieConsent locale={locale} gaId={gaId} gtmId={gtmId} metaPixelId={metaPixelId} />
     </div>
   );
 }

@@ -52,6 +52,7 @@ import './ai-assistant.css';
 import './gallery-page.css';
 import './videos-page.css';
 import './site-tour.css';
+import './cookie-consent.css';
 import './blog-page.css';
 import './fonts-arabic.css';
 import './arabic-rtl.css';

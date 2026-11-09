@@ -14,6 +14,7 @@ import {
   MapPin,
   School,
   Trees,
+  Users,
   Warehouse,
   X,
 } from 'lucide-react';
@@ -21,7 +22,7 @@ import {projectCategories, projectKinds} from '@/data/projects';
 import ProjectVisualFallback from '@/components/ProjectVisualFallback';
 import {NextChevron, PrevChevron} from '@/components/icons/DirectionalChevrons';
 
-const featuredSlug = 'four-towers-al-nahda';
+const featuredSlug = 'labor-community-meg';
 const pageSize = 9;
 const EASE = [0.16, 1, 0.3, 1];
 
@@ -29,6 +30,7 @@ const shortFilterLabels = {
   all: 'All Projects',
   towers: 'Towers',
   buildings: 'Buildings',
+  'labour-community': 'Labour Community',
   industrial: 'Industrial',
   infrastructure: 'Infrastructure',
   mosques: 'Mosques',
@@ -43,6 +45,7 @@ const shortFilterLabelsAr = {
   all: 'كل المشاريع',
   towers: 'الأبراج',
   buildings: 'المباني',
+  'labour-community': 'مجمع العمال',
   industrial: 'الصناعي',
   infrastructure: 'البنية التحتية',
   mosques: 'المساجد',
@@ -57,6 +60,7 @@ const filterIcons = {
   all: Layers,
   towers: Landmark,
   buildings: Building2,
+  'labour-community': Users,
   industrial: Factory,
   infrastructure: Warehouse,
   mosques: Landmark,
@@ -144,7 +148,7 @@ function FilterList({categories, counts, active, onSelect, ar}) {
     <div className="pl-filter-list" role="tablist" aria-orientation="vertical">
       {categories.map((category) => {
         const count = counts[category.slug] || 0;
-        if (category.slug !== 'all' && count === 0) return null;
+        if (category.slug !== 'all' && category.slug !== 'labour-community' && count === 0) return null;
         const label = ar
           ? shortFilterLabelsAr[category.slug] || category.titleAr
           : shortFilterLabels[category.slug] || category.title;
@@ -184,7 +188,7 @@ export default function ProjectsExplorer({locale, items}) {
   }, [list]);
 
   const filtered = active === 'all' ? list : list.filter((project) => project.category === active);
-  const showFeatured = active === 'all' || active === 'towers';
+  const showFeatured = active === 'all' || active === 'towers' || active === 'labour-community';
   const featured = showFeatured
     ? filtered.find((project) => project.slug === featuredSlug) || filtered.find((project) => project.featured)
     : null;

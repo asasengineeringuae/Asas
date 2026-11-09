@@ -68,6 +68,49 @@
   ],
   "heroSlides": [
     {
+      "id": "labor-community",
+      "slug": "labor-community-meg",
+      "image": "/assets/asas/projects-client/labor-community-meg/labor-community-meg-01.jpg",
+      "crop": "50% 45%",
+      "strip": "Labour Community",
+      "stripAr": "مجمع عمال",
+      "location": "Khalifa Industrial City B, Abu Dhabi",
+      "locationAr": "مدينة خليفة الصناعية ب، أبوظبي",
+      "title": "G+4 Labour Community — KIZAD",
+      "titleAr": "مجمع عمال G+4 — مدينة خليفة الصناعية",
+      "note": "The office’s lead concept: G+4 labour community on Plot 3261. Cover aerial of The Box scheme — proposal, not yet contracted.",
+      "noteAr": "أهم مقترح للمكتب: مجمع عمال G+4 على قطعة 3261. غلاف جوي لمفهوم الصندوق — مقترح ولم يُوقَّع بعد.",
+      "facts": [
+        [
+          "Form",
+          "G+4"
+        ],
+        [
+          "Plot",
+          "3261"
+        ],
+        [
+          "Stage",
+          "Concept"
+        ]
+      ],
+      "factsAr": [
+        [
+          "التكوين",
+          "G+4"
+        ],
+        [
+          "القطعة",
+          "3261"
+        ],
+        [
+          "المرحلة",
+          "مفهوم"
+        ]
+      ],
+      "enabled": true
+    },
+    {
       "id": "four-towers",
       "slug": "four-towers-al-nahda",
       "image": "/assets/asas/projects-client/four-towers-al-nahda/four-towers-al-nahda-01.jpg",
@@ -381,8 +424,8 @@
       "archiveCopy": "A featured project with supporting work across towers, infrastructure, education, compounds and interiors.",
       "archiveCta": "View all projects",
       "featured": "Selected project",
-      "featuredTitle": "Four Towers, Al Nahda",
-      "featuredDesc": "Four towers consisting of 3 basement levels, 6 podium levels, 6 parking levels and 37 floors. Architectural, civil & structural, MEP, Etisalat, drainage, quantities and specification design.",
+      "featuredTitle": "G+4 Labour Community — KIZAD",
+      "featuredDesc": "Concept design for a G+4 labour community on Plot 3261, Khalifa Industrial City B. Proposal stage; not yet contracted.",
       "viewProject": "View project"
     },
     "ar": {
@@ -404,8 +447,8 @@
       "archiveCopy": "مشروع مختار مع أعمال داعمة عبر الأبراج والبنية التحتية والتعليم والمجمعات والتصميم الداخلي.",
       "archiveCta": "عرض كل المشاريع",
       "featured": "مشروع مختار",
-      "featuredTitle": "أربعة أبراج، النهدة",
-      "featuredDesc": "أربعة أبراج تتكون من 3 طوابق سفلية و6 طوابق منصة و6 طوابق مواقف و37 طابقاً. يشمل نطاق العمل التصميم المعماري والإنشائي والكهروميكانيكي والاتصالات والصرف والكميات والمواصفات.",
+      "featuredTitle": "مجمع عمال G+4 — مدينة خليفة الصناعية",
+      "featuredDesc": "تصميم مفهوم لمجمع عمال G+4 على قطعة 3261 في مدينة خليفة الصناعية ب. مرحلة مقترح ولم يُوقَّع بعد.",
       "viewProject": "عرض المشروع"
     }
   },
@@ -476,11 +519,11 @@
       "answerAr": "تشمل دورة الحياة الموثقة الفكرة والموجز والتصميم والعطاء والتنفيذ وحصر الملاحظات والتسليم النهائي والإغلاق المالي والمراحل المستقبلية."
     }
   ],
-  "portfolioFeaturedSlug": "four-towers-al-nahda",
+  "portfolioFeaturedSlug": "labor-community-meg",
   "portfolioGridSlugs": [
+    "four-towers-al-nahda",
     "amwaj-tower-al-raha",
     "hotel-abu-dhabi-island-e10",
-    "mosque-al-shamkha-sh9",
-    "public-bathroom-louvre-saadiyat"
+    "mosque-al-shamkha-sh9"
   ]
 }

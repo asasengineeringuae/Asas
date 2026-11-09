@@ -275,15 +275,25 @@ export default async function Home({params}) {
   const whyList = resolveWhyPoints(homepage, ar);
   const faqList = resolveFaqs(homepage, ar);
 
-  const featuredSlug = homepage?.portfolioFeaturedSlug || 'four-towers-al-nahda';
-  const gridSlugs = homepage?.portfolioGridSlugs?.length
-    ? homepage.portfolioGridSlugs
-    : defaultPortfolioGridSlugs;
+  const featuredSlug = homepage?.portfolioFeaturedSlug || 'labor-community-meg';
   const featuredProject = projects.find((project) => project.slug === featuredSlug)
+    || projects.find((project) => project.featured && project.visual)
     || projects.find((project) => project.visual);
-  const portfolioGrid = gridSlugs
-    .map((slug) => projects.find((project) => project.slug === slug))
-    .filter(Boolean);
+  const fallbackGridSlugs = defaultPortfolioGridSlugs;
+  const requestedGrid = (homepage?.portfolioGridSlugs?.length
+    ? homepage.portfolioGridSlugs
+    : fallbackGridSlugs
+  ).filter((slug) => slug !== featuredProject?.slug);
+  const portfolioGrid = [];
+  const seenGrid = new Set();
+  for (const slug of [...requestedGrid, ...fallbackGridSlugs, ...projects.map((p) => p.slug)]) {
+    if (portfolioGrid.length >= 4) break;
+    if (!slug || slug === featuredProject?.slug || seenGrid.has(slug)) continue;
+    const hit = projects.find((project) => project.slug === slug && project.visual?.src);
+    if (!hit) continue;
+    seenGrid.add(slug);
+    portfolioGrid.push(hit);
+  }
   const tabsServices = featuredServices?.length ? featuredServices : featuredServicesSeed;
   const projectCount = Math.max(1000, projects?.length || 0);
   const serviceCount = services?.length || servicesSeed.length;
@@ -449,10 +459,21 @@ export default async function Home({params}) {
               </div>
               <div className="hp-featured-copy">
                 <p className="atlas-kicker">{t.featured}</p>
-                <h3>{t.featuredTitle}</h3>
-                <p>{t.featuredDesc}</p>
+                <h3>{ar ? featuredProject.titleAr : featuredProject.title}</h3>
+                <p>{ar ? featuredProject.descriptionAr : featuredProject.description}</p>
                 <dl>
-                  {t.dossier.map(([label, value]) => (
+                  {(ar
+                    ? [
+                        ['النوع', featuredProject.kind === 'study' ? 'دراسة مفهوم' : featuredProject.kind === 'interior' ? 'تصميم داخلي' : 'مشروع'],
+                        ['النطاق', featuredProject.scope || '—'],
+                        ['الموقع', featuredProject.locationShortAr || featuredProject.locationAr || 'أبوظبي'],
+                      ]
+                    : [
+                        ['Type', featuredProject.kind === 'study' ? 'Concept study' : featuredProject.kind === 'interior' ? 'Interior design' : 'Project'],
+                        ['Scope', featuredProject.scope || '—'],
+                        ['Location', featuredProject.locationShort || featuredProject.location || 'Abu Dhabi'],
+                      ]
+                  ).map(([label, value]) => (
                     <div key={label}><dt>{label}</dt><dd>{value}</dd></div>
                   ))}
                 </dl>

@@ -1,6 +1,182 @@
 [
   {
     "status": "published",
+    "id": 23,
+    "slug": "labor-community-meg",
+    "title": "G+4 Labour Community — Khalifa Industrial City",
+    "titleAr": "مجمع عمال G+4 — مدينة خليفة الصناعية",
+    "category": "labour-community",
+    "sector": "labour-community",
+    "sectors": [
+      "labour-community"
+    ],
+    "location": "Khalifa Industrial City B, Plot 3261, Abu Dhabi",
+    "locationAr": "مدينة خليفة الصناعية ب، قطعة 3261، أبوظبي",
+    "locationShort": "KIZAD B, Abu Dhabi",
+    "locationShortAr": "مدينة خليفة الصناعية، أبوظبي",
+    "description": "Concept design for a G+4 labour community on Plot 3261, Khalifa Industrial City B. Two schemes — The Box Concept and Out of the Box — covering podium retail, labour rooms, site layout and perspectives. Proposal stage; not yet contracted.",
+    "descriptionAr": "تصميم مفهوم لمجمع عمال G+4 على قطعة 3261 في مدينة خليفة الصناعية ب. مقترحان: مفهوم الصندوق وخارج الصندوق، يشمل منصة التجزئة وغرف العمال ومخطط الموقع والمنظورات. مرحلة مقترح ولم يُوقَّع بعد.",
+    "scope": "G+4 concept · Plot 3261 KIZAD B",
+    "services": [
+      "architectural-design",
+      "civil-structural-engineering",
+      "mep-engineering-design",
+      "quantities-cost",
+      "studies-specifications"
+    ],
+    "kind": "study",
+    "image": "/assets/asas/projects-client/labor-community-meg/labor-community-meg-01.jpg",
+    "imageAsset": {
+      "id": "labor-community-meg",
+      "classification": "PROJECT_PHOTO",
+      "qualityTier": "A_PROJECT_HERO",
+      "status": "APPROVED_FOR_CARDS",
+      "card": "/assets/asas/projects-client/labor-community-meg/labor-community-meg-01.jpg",
+      "portfolio": "/assets/asas/projects-client/labor-community-meg/labor-community-meg-01.jpg",
+      "mobile": "/assets/asas/projects-client/labor-community-meg/labor-community-meg-02.jpg",
+      "gallery": [
+        "/assets/asas/projects-client/labor-community-meg/labor-community-meg-01.jpg",
+        "/assets/asas/projects-client/labor-community-meg/labor-community-meg-02.jpg",
+        "/assets/asas/projects-client/labor-community-meg/labor-community-meg-03.jpg",
+        "/assets/asas/projects-client/labor-community-meg/labor-community-meg-04.png",
+        "/assets/asas/projects-client/labor-community-meg/labor-community-meg-05.png",
+        "/assets/asas/projects-client/labor-community-meg/labor-community-meg-06.jpg",
+        "/assets/asas/projects-client/labor-community-meg/labor-community-meg-07.jpg",
+        "/assets/asas/projects-client/labor-community-meg/labor-community-meg-08.jpg",
+        "/assets/asas/projects-client/labor-community-meg/labor-community-meg-09.jpg",
+        "/assets/asas/projects-client/labor-community-meg/labor-community-meg-10.jpg",
+        "/assets/asas/projects-client/labor-community-meg/labor-community-meg-11.jpg"
+      ]
+    },
+    "visual": {
+      "src": "/assets/asas/projects-client/labor-community-meg/labor-community-meg-01.jpg",
+      "crop": "50% 50%",
+      "classification": "PROJECT_PHOTO"
+    },
+    "images": [
+      "/assets/asas/projects-client/labor-community-meg/labor-community-meg-01.jpg",
+      "/assets/asas/projects-client/labor-community-meg/labor-community-meg-02.jpg",
+      "/assets/asas/projects-client/labor-community-meg/labor-community-meg-03.jpg",
+      "/assets/asas/projects-client/labor-community-meg/labor-community-meg-04.png",
+      "/assets/asas/projects-client/labor-community-meg/labor-community-meg-05.png",
+      "/assets/asas/projects-client/labor-community-meg/labor-community-meg-06.jpg",
+      "/assets/asas/projects-client/labor-community-meg/labor-community-meg-07.jpg",
+      "/assets/asas/projects-client/labor-community-meg/labor-community-meg-08.jpg",
+      "/assets/asas/projects-client/labor-community-meg/labor-community-meg-09.jpg",
+      "/assets/asas/projects-client/labor-community-meg/labor-community-meg-10.jpg",
+      "/assets/asas/projects-client/labor-community-meg/labor-community-meg-11.jpg"
+    ],
+    "gallery": [
+      "/assets/asas/projects-client/labor-community-meg/labor-community-meg-01.jpg",
+      "/assets/asas/projects-client/labor-community-meg/labor-community-meg-02.jpg",
+      "/assets/asas/projects-client/labor-community-meg/labor-community-meg-03.jpg",
+      "/assets/asas/projects-client/labor-community-meg/labor-community-meg-04.png",
+      "/assets/asas/projects-client/labor-community-meg/labor-community-meg-05.png",
+      "/assets/asas/projects-client/labor-community-meg/labor-community-meg-06.jpg",
+      "/assets/asas/projects-client/labor-community-meg/labor-community-meg-07.jpg",
+      "/assets/asas/projects-client/labor-community-meg/labor-community-meg-08.jpg",
+      "/assets/asas/projects-client/labor-community-meg/labor-community-meg-09.jpg",
+      "/assets/asas/projects-client/labor-community-meg/labor-community-meg-10.jpg",
+      "/assets/asas/projects-client/labor-community-meg/labor-community-meg-11.jpg"
+    ],
+    "needsOriginalImage": false,
+    "featured": true,
+    "source": "client-whatsapp-2026-11-02",
+    "displayOrder": 1
+  },
+  {
+    "status": "published",
+    "id": 24,
+    "slug": "villa-g1-roof",
+    "title": "Private Villa Interiors — Ground + First + Roof",
+    "titleAr": "تصميم داخلي لفيلا خاصة — أرضي + أول + سطح",
+    "category": "interior-design",
+    "sector": "interior-design",
+    "sectors": [
+      "interior-hospitality-retail"
+    ],
+    "location": "Abu Dhabi",
+    "locationAr": "أبوظبي",
+    "locationShort": "Abu Dhabi",
+    "locationShortAr": "أبوظبي",
+    "description": "Interior design proposal for a private villa: men majlis, dining, women majlis, pantry, entrance and master suites. Exterior plans from the same study are not published at the client’s request.",
+    "descriptionAr": "مقترح تصميم داخلي لفيلا خاصة: مجلس رجال، طعام، مجلس نساء، بانتري، مدخل وأجنحة ماستر. المخططات الخارجية من الدراسة نفسها غير منشورة بناءً على طلب العميل.",
+    "scope": "Interior design · G+1+roof villa",
+    "services": [
+      "interior-design",
+      "architectural-design"
+    ],
+    "kind": "interior",
+    "image": "/assets/asas/projects-client/villa-g1-roof/villa-g1-roof-01.png",
+    "imageAsset": {
+      "id": "villa-g1-roof",
+      "classification": "PROJECT_PHOTO",
+      "qualityTier": "A_PROJECT_HERO",
+      "status": "APPROVED_FOR_CARDS",
+      "card": "/assets/asas/projects-client/villa-g1-roof/villa-g1-roof-01.png",
+      "portfolio": "/assets/asas/projects-client/villa-g1-roof/villa-g1-roof-01.png",
+      "mobile": "/assets/asas/projects-client/villa-g1-roof/villa-g1-roof-02.jpg",
+      "gallery": [
+        "/assets/asas/projects-client/villa-g1-roof/villa-g1-roof-01.png",
+        "/assets/asas/projects-client/villa-g1-roof/villa-g1-roof-02.jpg",
+        "/assets/asas/projects-client/villa-g1-roof/villa-g1-roof-03.jpg",
+        "/assets/asas/projects-client/villa-g1-roof/villa-g1-roof-04.jpg",
+        "/assets/asas/projects-client/villa-g1-roof/villa-g1-roof-05.jpg",
+        "/assets/asas/projects-client/villa-g1-roof/villa-g1-roof-06.jpg",
+        "/assets/asas/projects-client/villa-g1-roof/villa-g1-roof-07.jpg",
+        "/assets/asas/projects-client/villa-g1-roof/villa-g1-roof-08.jpg",
+        "/assets/asas/projects-client/villa-g1-roof/villa-g1-roof-09.jpg",
+        "/assets/asas/projects-client/villa-g1-roof/villa-g1-roof-10.jpg",
+        "/assets/asas/projects-client/villa-g1-roof/villa-g1-roof-11.jpg",
+        "/assets/asas/projects-client/villa-g1-roof/villa-g1-roof-12.jpg",
+        "/assets/asas/projects-client/villa-g1-roof/villa-g1-roof-13.jpg",
+        "/assets/asas/projects-client/villa-g1-roof/villa-g1-roof-14.jpg"
+      ]
+    },
+    "visual": {
+      "src": "/assets/asas/projects-client/villa-g1-roof/villa-g1-roof-01.png",
+      "crop": "50% 50%",
+      "classification": "PROJECT_PHOTO"
+    },
+    "images": [
+      "/assets/asas/projects-client/villa-g1-roof/villa-g1-roof-01.png",
+      "/assets/asas/projects-client/villa-g1-roof/villa-g1-roof-02.jpg",
+      "/assets/asas/projects-client/villa-g1-roof/villa-g1-roof-03.jpg",
+      "/assets/asas/projects-client/villa-g1-roof/villa-g1-roof-04.jpg",
+      "/assets/asas/projects-client/villa-g1-roof/villa-g1-roof-05.jpg",
+      "/assets/asas/projects-client/villa-g1-roof/villa-g1-roof-06.jpg",
+      "/assets/asas/projects-client/villa-g1-roof/villa-g1-roof-07.jpg",
+      "/assets/asas/projects-client/villa-g1-roof/villa-g1-roof-08.jpg",
+      "/assets/asas/projects-client/villa-g1-roof/villa-g1-roof-09.jpg",
+      "/assets/asas/projects-client/villa-g1-roof/villa-g1-roof-10.jpg",
+      "/assets/asas/projects-client/villa-g1-roof/villa-g1-roof-11.jpg",
+      "/assets/asas/projects-client/villa-g1-roof/villa-g1-roof-12.jpg",
+      "/assets/asas/projects-client/villa-g1-roof/villa-g1-roof-13.jpg",
+      "/assets/asas/projects-client/villa-g1-roof/villa-g1-roof-14.jpg"
+    ],
+    "gallery": [
+      "/assets/asas/projects-client/villa-g1-roof/villa-g1-roof-01.png",
+      "/assets/asas/projects-client/villa-g1-roof/villa-g1-roof-02.jpg",
+      "/assets/asas/projects-client/villa-g1-roof/villa-g1-roof-03.jpg",
+      "/assets/asas/projects-client/villa-g1-roof/villa-g1-roof-04.jpg",
+      "/assets/asas/projects-client/villa-g1-roof/villa-g1-roof-05.jpg",
+      "/assets/asas/projects-client/villa-g1-roof/villa-g1-roof-06.jpg",
+      "/assets/asas/projects-client/villa-g1-roof/villa-g1-roof-07.jpg",
+      "/assets/asas/projects-client/villa-g1-roof/villa-g1-roof-08.jpg",
+      "/assets/asas/projects-client/villa-g1-roof/villa-g1-roof-09.jpg",
+      "/assets/asas/projects-client/villa-g1-roof/villa-g1-roof-10.jpg",
+      "/assets/asas/projects-client/villa-g1-roof/villa-g1-roof-11.jpg",
+      "/assets/asas/projects-client/villa-g1-roof/villa-g1-roof-12.jpg",
+      "/assets/asas/projects-client/villa-g1-roof/villa-g1-roof-13.jpg",
+      "/assets/asas/projects-client/villa-g1-roof/villa-g1-roof-14.jpg"
+    ],
+    "needsOriginalImage": false,
+    "featured": true,
+    "source": "client-whatsapp-2026-11-02",
+    "displayOrder": 2
+  },
+  {
+    "status": "published",
     "id": 1,
     "slug": "four-towers-al-nahda",
     "title": "Four Towers, Al Nahda",
@@ -54,7 +230,8 @@
     ],
     "needsOriginalImage": false,
     "featured": true,
-    "source": "client-whatsapp-2026-11-02"
+    "source": "client-whatsapp-2026-11-02",
+    "displayOrder": 10
   },
   {
     "status": "published",
@@ -1222,134 +1399,6 @@
     "gallery": [
       "/assets/asas/projects-client/mosque-mbz-city/mosque-mbz-city-01.jpg",
       "/assets/asas/projects-client/mosque-mbz-city/mosque-mbz-city-02.jpg"
-    ],
-    "needsOriginalImage": false,
-    "featured": false,
-    "source": "client-whatsapp-2026-11-02"
-  },
-  {
-    "status": "published",
-    "id": 23,
-    "slug": "labor-community-meg",
-    "title": "Labour Community MEG",
-    "titleAr": "مجمع عمال MEG",
-    "category": "buildings",
-    "sector": "buildings",
-    "sectors": [
-      "commercial-residential-buildings",
-      "infrastructure-urban-planning"
-    ],
-    "location": "Abu Dhabi",
-    "locationAr": "أبوظبي",
-    "locationShort": "Abu Dhabi",
-    "locationShortAr": "أبوظبي",
-    "description": "Labour community concept study (MEG): site layout, podium, typical floors, labour rooms, retail and building services. Prepared as a design-sprint concept.",
-    "descriptionAr": "دراسة مفهوم لمجمع عمال (MEG): مخطط الموقع والمنصة والطوابق المتكررة وغرف العمال والتجزئة وخدمات المبنى.",
-    "scope": "Concept study · The Box / Out of the Box",
-    "services": [
-      "architectural-design",
-      "civil-structural-engineering",
-      "mep-engineering-design",
-      "quantities-cost",
-      "studies-specifications"
-    ],
-    "kind": "study",
-    "image": "/assets/asas/projects-client/labor-community-meg/labor-community-meg-01.jpeg",
-    "imageAsset": {
-      "id": "labor-community-meg",
-      "classification": "PROJECT_PHOTO",
-      "qualityTier": "A_PROJECT_HERO",
-      "status": "APPROVED_FOR_CARDS",
-      "card": "/assets/asas/projects-client/labor-community-meg/labor-community-meg-01.jpeg",
-      "portfolio": "/assets/asas/projects-client/labor-community-meg/labor-community-meg-01.jpeg",
-      "mobile": "/assets/asas/projects-client/labor-community-meg/labor-community-meg-02.jpg",
-      "gallery": [
-        "/assets/asas/projects-client/labor-community-meg/labor-community-meg-01.jpeg",
-        "/assets/asas/projects-client/labor-community-meg/labor-community-meg-02.jpg",
-        "/assets/asas/projects-client/labor-community-meg/labor-community-meg-03.jpg",
-        "/assets/asas/projects-client/labor-community-meg/labor-community-meg-04.png",
-        "/assets/asas/projects-client/labor-community-meg/labor-community-meg-05.png"
-      ]
-    },
-    "visual": {
-      "src": "/assets/asas/projects-client/labor-community-meg/labor-community-meg-01.jpeg",
-      "crop": "50% 50%",
-      "classification": "PROJECT_PHOTO"
-    },
-    "images": [
-      "/assets/asas/projects-client/labor-community-meg/labor-community-meg-01.jpeg",
-      "/assets/asas/projects-client/labor-community-meg/labor-community-meg-02.jpg",
-      "/assets/asas/projects-client/labor-community-meg/labor-community-meg-03.jpg",
-      "/assets/asas/projects-client/labor-community-meg/labor-community-meg-04.png",
-      "/assets/asas/projects-client/labor-community-meg/labor-community-meg-05.png"
-    ],
-    "gallery": [
-      "/assets/asas/projects-client/labor-community-meg/labor-community-meg-01.jpeg",
-      "/assets/asas/projects-client/labor-community-meg/labor-community-meg-02.jpg",
-      "/assets/asas/projects-client/labor-community-meg/labor-community-meg-03.jpg",
-      "/assets/asas/projects-client/labor-community-meg/labor-community-meg-04.png",
-      "/assets/asas/projects-client/labor-community-meg/labor-community-meg-05.png"
-    ],
-    "needsOriginalImage": false,
-    "featured": false,
-    "source": "client-whatsapp-2026-11-02"
-  },
-  {
-    "status": "published",
-    "id": 24,
-    "slug": "villa-g1-roof",
-    "title": "Private Villa — Ground + First + Roof",
-    "titleAr": "فيلا خاصة — أرضي + أول + سطح",
-    "category": "private-villas",
-    "sector": "private-villas",
-    "sectors": [
-      "villas-compounds-palaces"
-    ],
-    "location": "Abu Dhabi",
-    "locationAr": "أبوظبي",
-    "locationShort": "Abu Dhabi",
-    "locationShortAr": "أبوظبي",
-    "description": "Preliminary design proposal for a private villa (ground + first + roof), including interior concept for men majlis, dining and women majlis.",
-    "descriptionAr": "مقترح أولي لتصميم فيلا أرضي + أول + سطح، مع مقترح ديكور داخلي لمجلس الرجال وغرفة الطعام ومجلس النساء.",
-    "scope": "G + 1 + roof · interiors",
-    "services": [
-      "architectural-design",
-      "civil-structural-engineering",
-      "mep-engineering-design",
-      "quantities-cost",
-      "studies-specifications",
-      "interior-design"
-    ],
-    "kind": "interior",
-    "image": "/assets/asas/projects-client/villa-g1-roof/villa-g1-roof-01.png",
-    "imageAsset": {
-      "id": "villa-g1-roof",
-      "classification": "PROJECT_PHOTO",
-      "qualityTier": "A_PROJECT_HERO",
-      "status": "APPROVED_FOR_CARDS",
-      "card": "/assets/asas/projects-client/villa-g1-roof/villa-g1-roof-01.png",
-      "portfolio": "/assets/asas/projects-client/villa-g1-roof/villa-g1-roof-01.png",
-      "mobile": "/assets/asas/projects-client/villa-g1-roof/villa-g1-roof-02.png",
-      "gallery": [
-        "/assets/asas/projects-client/villa-g1-roof/villa-g1-roof-01.png",
-        "/assets/asas/projects-client/villa-g1-roof/villa-g1-roof-02.png",
-        "/assets/asas/projects-client/villa-g1-roof/villa-g1-roof-03.png"
-      ]
-    },
-    "visual": {
-      "src": "/assets/asas/projects-client/villa-g1-roof/villa-g1-roof-01.png",
-      "crop": "50% 50%",
-      "classification": "PROJECT_PHOTO"
-    },
-    "images": [
-      "/assets/asas/projects-client/villa-g1-roof/villa-g1-roof-01.png",
-      "/assets/asas/projects-client/villa-g1-roof/villa-g1-roof-02.png",
-      "/assets/asas/projects-client/villa-g1-roof/villa-g1-roof-03.png"
-    ],
-    "gallery": [
-      "/assets/asas/projects-client/villa-g1-roof/villa-g1-roof-01.png",
-      "/assets/asas/projects-client/villa-g1-roof/villa-g1-roof-02.png",
-      "/assets/asas/projects-client/villa-g1-roof/villa-g1-roof-03.png"
     ],
     "needsOriginalImage": false,
     "featured": false,

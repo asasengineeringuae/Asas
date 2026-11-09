@@ -65,6 +65,16 @@
     "descriptionAr": "فلل خاصة وسكنية وقصور ومجمعات متعددة الوحدات مع تنسيق المداخل والمواقف والخدمات."
   },
   {
+    "id": "interior-hospitality-retail",
+    "status": "published",
+    "slug": "interior-hospitality-retail",
+    "title": "Interiors, Hospitality & Retail",
+    "titleAr": "التصميم الداخلي والضيافة والتجزئة",
+    "projectCategory": "interior-design",
+    "description": "Residential interiors, majlis and reception halls, hotels, restaurants, retail and showroom fit-outs.",
+    "descriptionAr": "تصميمات داخلية سكنية ومجالس وقاعات استقبال وفنادق ومطاعم ومتاجر وتجهيز صالات العرض."
+  },
+  {
     "id": "mosques-places-of-worship",
     "status": "published",
     "slug": "mosques-places-of-worship",
@@ -75,13 +85,13 @@
     "descriptionAr": "تصميم المساجد شاملاً المعماري والإنشائي والكهروميكانيك والدفاع المدني والكاميرات."
   },
   {
-    "id": "interior-hospitality-retail",
+    "id": "labour-community",
     "status": "published",
-    "slug": "interior-hospitality-retail",
-    "title": "Interiors, Hospitality & Retail",
-    "titleAr": "التصميم الداخلي والضيافة والتجزئة",
-    "projectCategory": "interior-design",
-    "description": "Residential interiors, majlis and reception halls, hotels, restaurants, retail and showroom fit-outs.",
-    "descriptionAr": "تصميمات داخلية سكنية ومجالس وقاعات استقبال وفنادق ومطاعم ومتاجر وتجهيز صالات العرض."
+    "slug": "labour-community",
+    "title": "Labour Community",
+    "titleAr": "مجمع العمال",
+    "projectCategory": "labour-community",
+    "description": "Labour accommodation communities, including G+4 compounds with retail podiums, labour rooms and site layout.",
+    "descriptionAr": "مجمعات سكن عمال، بما يشمل مجمعات G+4 بمنصة تجزئة وغرف عمال ومخطط موقع."
   }
 ]

@@ -8,6 +8,14 @@ export const sectors = [
     descriptionAr: 'أبراج سكنية وتجارية يدعمها تصميم معماري وإنشائي وكهروميكانيكي منسق.',
   },
   {
+    slug: 'labour-community',
+    title: 'Labour Community',
+    titleAr: 'مجمع العمال',
+    projectCategory: 'labour-community',
+    description: 'Labour accommodation communities, including G+4 compounds with retail podiums, labour rooms and site layout.',
+    descriptionAr: 'مجمعات سكن عمال، بما يشمل مجمعات G+4 بمنصة تجزئة وغرف عمال ومخطط موقع.',
+  },
+  {
     slug: 'commercial-residential-buildings',
     title: 'Commercial & Residential Buildings',
     titleAr: 'المباني التجارية والسكنية',

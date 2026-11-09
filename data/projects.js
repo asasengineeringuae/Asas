@@ -8,6 +8,7 @@ export const projectCategories = [
   {slug: 'all', title: 'All', titleAr: 'الكل'},
   {slug: 'towers', title: 'Towers & High-Rise', titleAr: 'الأبراج والمباني العالية'},
   {slug: 'buildings', title: 'Buildings', titleAr: 'المباني'},
+  {slug: 'labour-community', title: 'Labour Community', titleAr: 'مجمع العمال'},
   {slug: 'industrial', title: 'Industrial', titleAr: 'الصناعي'},
   {slug: 'infrastructure', title: 'Infrastructure', titleAr: 'البنية التحتية'},
   {slug: 'mosques', title: 'Mosques', titleAr: 'المساجد'},
@@ -19,11 +20,11 @@ export const projectCategories = [
 ];
 
 export function projectHeroVisualsFrom(projects = []) {
+  const labor = projects.find((project) => project.slug === 'labor-community-meg');
   const fourTowers = projects.find((project) => project.slug === 'four-towers-al-nahda');
-  const amwaj = projects.find((project) => project.slug === 'amwaj-tower-al-raha');
   const first = projects.find((project) => project.image);
-  const left = fourTowers?.image || first?.image;
-  const right = amwaj?.image || left;
+  const left = labor?.image || fourTowers?.image || first?.image;
+  const right = fourTowers?.image || labor?.image || left;
   return [
     left ? {src: left, crop: '50% 40%', projectPhoto: true} : null,
     right ? {src: right, crop: '50% 45%', projectPhoto: true} : null,

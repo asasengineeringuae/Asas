@@ -1,6 +1,6 @@
 import {NextResponse} from 'next/server';
 import {addEnquiry} from '@/lib/cms/content-service';
-import {notifyStaff, sendMail} from '@/lib/cms/mail';
+import {notifyStaff, sendMail, STAFF_INBOX} from '@/lib/cms/mail';
 
 export const runtime = 'nodejs';
 
@@ -39,9 +39,10 @@ export async function POST(request) {
       status: 'new',
     });
 
-    await notifyStaff(
+    const staffMail = await notifyStaff(
       `New enquiry — ${name}`,
       `${name} <${email}>\n${phone}\n${serviceLabel || service}\n${location}\n\n${message}`,
+      {replyTo: email},
     );
     await sendMail({
       to: email,
@@ -50,9 +51,10 @@ export async function POST(request) {
         locale === 'ar'
           ? 'شكرًا لتواصلك مع أساس. فريقنا سيراجع الطلب ويتواصل معك.'
           : 'Thank you for contacting ASAS Engineering. Our team will review your enquiry and reply shortly.',
+      replyTo: STAFF_INBOX,
     });
 
-    return NextResponse.json({ok: true, id: record.id});
+    return NextResponse.json({ok: true, id: record.id, emailed: Boolean(staffMail.sent)});
   } catch (error) {
     console.error('public enquiry error', error);
     return NextResponse.json({error: 'Server error'}, {status: 500});

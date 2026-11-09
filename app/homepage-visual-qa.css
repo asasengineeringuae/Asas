@@ -1104,6 +1104,22 @@ html[dir='rtl'] .whatsapp {
   line-height: 1.65;
 }
 
+.atlas-home .home-contact-error {
+  margin: 12px 0 0;
+  color: #a02315;
+  font: 600 13px/1.45 "Microsoft PhagsPa", "Segoe UI", Arial, sans-serif;
+}
+
+.atlas-home .home-contact-form button:disabled {
+  opacity: 0.7;
+  cursor: wait;
+  transform: none;
+}
+
+.atlas-home .enquiry-spin {
+  animation: enquiry-spin 0.8s linear infinite;
+}
+
 /* FAQ transition */
 .atlas-home .hp-faq {
   padding: 88px 0 72px !important;

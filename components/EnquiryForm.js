@@ -3,7 +3,6 @@
 import {useState} from 'react';
 import {ArrowUpRight, CheckCircle2, Loader2, Mail} from 'lucide-react';
 import {services as servicesSeed} from '@/data/services';
-import {company as companySeed} from '@/data/company';
 
 const EXTRA_OPTIONS = [
   {slug: 'other', title: 'Other', titleAr: 'أخرى'},
@@ -24,13 +23,12 @@ export default function EnquiryForm({
   locale = 'en',
   id = 'project-enquiry-form',
   services,
-  companyData,
 }) {
   const ar = locale === 'ar';
-  const company = companyData || companySeed;
   const [values, setValues] = useState(initial);
   const [errors, setErrors] = useState({});
   const [status, setStatus] = useState('idle');
+  const [submitError, setSubmitError] = useState('');
   const options = [...(Array.isArray(services) && services.length ? services : servicesSeed), ...EXTRA_OPTIONS];
 
   const copy = ar
@@ -44,11 +42,12 @@ export default function EnquiryForm({
         locationHint: 'اختياري',
         message: 'تفاصيل المشروع',
         submit: 'إرسال الاستفسار',
-        sending: 'جاري التحضير…',
+        sending: 'جاري الإرسال…',
         successTitle: 'شكراً لك',
-        successBody: 'سيراجع فريق أساس للاستشارات الهندسية وإدارة المشاريع رسالتك ويتواصل معك قريباً.',
+        successBody: 'وصلت رسالتك إلى bahaa@asasengg.ae وظهرت في لوحة الإدارة. سنتواصل معك قريباً.',
         reset: 'إرسال استفسار آخر',
-        note: 'يفتح تطبيق البريد لديك برسالة جاهزة إلى فريق ASAS.',
+        note: 'تُحفظ الرسالة في النظام وتُرسل إلى bahaa@asasengg.ae',
+        sendFailed: 'تعذر إرسال الرسالة. حاول مرة أخرى.',
         required: 'هذا الحقل مطلوب',
         emailInvalid: 'أدخل بريداً إلكترونياً صالحاً',
       }
@@ -62,11 +61,12 @@ export default function EnquiryForm({
         locationHint: 'Optional',
         message: 'Message / project details',
         submit: 'Submit Project Enquiry',
-        sending: 'Preparing…',
+        sending: 'Sending…',
         successTitle: 'Thanks — our team will be in touch shortly',
-        successBody: 'Your enquiry is ready in your email app. Send it to reach the ASAS office in Abu Dhabi.',
+        successBody: 'Your enquiry was emailed to bahaa@asasengg.ae and saved in the admin inbox.',
         reset: 'Send another enquiry',
-        note: 'Opens your email app with a message ready for the ASAS team.',
+        note: 'Saved in the admin inbox and emailed to bahaa@asasengg.ae',
+        sendFailed: 'Could not send the enquiry. Please try again.',
         required: 'This field is required',
         emailInvalid: 'Enter a valid email address',
       };
@@ -94,11 +94,12 @@ export default function EnquiryForm({
     if (!validate()) return;
 
     setStatus('loading');
+    setSubmitError('');
     const serviceLabel =
       options.find((item) => item.slug === values.service)?.[ar ? 'titleAr' : 'title'] || values.service;
 
     try {
-      await fetch('/api/public/enquiry', {
+      const res = await fetch('/api/public/enquiry', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
@@ -113,35 +114,13 @@ export default function EnquiryForm({
           source: id,
         }),
       });
-    } catch {
-      // Persist failure should not block the mailto handoff.
-    }
-
-    const subject = ar
-      ? `استفسار مشروع — ${values.name.trim()}`
-      : `Project enquiry — ${values.name.trim()}`;
-
-    const body = [
-      ar ? `الاسم: ${values.name.trim()}` : `Name: ${values.name.trim()}`,
-      ar ? `البريد: ${values.email.trim()}` : `Email: ${values.email.trim()}`,
-      ar ? `الهاتف: ${values.phone.trim()}` : `Phone: ${values.phone.trim()}`,
-      ar ? `الخدمة: ${serviceLabel}` : `Service: ${serviceLabel}`,
-      values.location.trim()
-        ? ar
-          ? `الموقع / القطاع: ${values.location.trim()}`
-          : `Location / sector: ${values.location.trim()}`
-        : null,
-      '',
-      ar ? 'تفاصيل المشروع:' : 'Project details:',
-      values.message.trim(),
-    ]
-      .filter(Boolean)
-      .join('\n');
-
-    window.setTimeout(() => {
-      window.location.href = `mailto:${company.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      const payload = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(payload.error || 'Failed');
       setStatus('success');
-    }, 450);
+    } catch {
+      setStatus('idle');
+      setSubmitError(copy.sendFailed);
+    }
   }
 
   if (status === 'success') {
@@ -156,6 +135,7 @@ export default function EnquiryForm({
           onClick={() => {
             setValues(initial);
             setErrors({});
+            setSubmitError('');
             setStatus('idle');
           }}
         >
@@ -258,6 +238,7 @@ export default function EnquiryForm({
         </label>
       </div>
 
+      {submitError ? <p className="enquiry-note" role="alert">{submitError}</p> : null}
       <button className="button enquiry-submit" type="submit" disabled={status === 'loading'}>
         {status === 'loading' ? (
           <>

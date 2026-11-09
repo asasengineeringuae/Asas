@@ -285,7 +285,7 @@ export default async function Home({params}) {
     .map((slug) => projects.find((project) => project.slug === slug))
     .filter(Boolean);
   const tabsServices = featuredServices?.length ? featuredServices : featuredServicesSeed;
-  const projectCount = projects?.length || 0;
+  const projectCount = Math.max(1000, projects?.length || 0);
   const serviceCount = services?.length || servicesSeed.length;
   const sectorCount = sectors?.length || sectorsSeed.length;
 

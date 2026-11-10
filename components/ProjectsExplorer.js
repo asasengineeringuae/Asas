@@ -148,7 +148,13 @@ function FilterList({categories, counts, active, onSelect, ar}) {
     <div className="pl-filter-list" role="tablist" aria-orientation="vertical">
       {categories.map((category) => {
         const count = counts[category.slug] || 0;
-        if (category.slug !== 'all' && category.slug !== 'labour-community' && count === 0) return null;
+        if (
+          category.slug !== 'all' &&
+          category.slug !== 'labour-community' &&
+          category.slug !== 'interior-design' &&
+          count === 0
+        )
+          return null;
         const label = ar
           ? shortFilterLabelsAr[category.slug] || category.titleAr
           : shortFilterLabels[category.slug] || category.title;

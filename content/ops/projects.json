@@ -1714,5 +1714,31 @@
     "portfolioProjectId": "villa-shawamekh-shm7-150",
     "createdAt": "2026-11-06T09:34:00.000Z",
     "updatedAt": "2026-11-06T09:34:00.000Z"
+  },
+  {
+    "id": "opr_web_villa-al-rumaithi",
+    "nameEn": "Al-Rumaithi Villa Interiors",
+    "nameAr": "تصميم داخلي لفيلا الرميثي",
+    "code": "ASAS-W-64",
+    "clientId": null,
+    "projectType": "Interior design · villa",
+    "sector": "Interior Design",
+    "location": "Abu Dhabi",
+    "emirate": "Abu Dhabi",
+    "country": "UAE",
+    "descriptionEn": "Interior design for Al-Rumaithi Villa covering ground and first floors. Exteriors from the same study are not published.",
+    "descriptionAr": "تصميم داخلي لفيلا الرميثي في الطابقين الأرضي والأول. الواجهات الخارجية من الدراسة نفسها غير منشورة.",
+    "contractValue": null,
+    "startDate": null,
+    "plannedEndDate": null,
+    "actualEndDate": null,
+    "projectManagerId": null,
+    "projectDirectorId": null,
+    "status": "active",
+    "priority": "normal",
+    "progress": 0,
+    "portfolioProjectId": "villa-al-rumaithi",
+    "createdAt": "2026-11-10T09:34:00.000Z",
+    "updatedAt": "2026-11-10T09:34:00.000Z"
   }
 ]

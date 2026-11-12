@@ -295,7 +295,7 @@ export default async function Home({params}) {
     portfolioGrid.push(hit);
   }
   const tabsServices = featuredServices?.length ? featuredServices : featuredServicesSeed;
-  const projectCount = Math.max(1000, projects?.length || 0);
+  const projectCount = 10;
   const serviceCount = services?.length || servicesSeed.length;
   const sectorCount = sectors?.length || sectorsSeed.length;
 
@@ -367,7 +367,7 @@ export default async function Home({params}) {
           {
             id: 'projects',
             value: projectCount,
-            suffix: '+',
+            suffix: 'K',
             label: 'Projects',
             labelAr: 'مشاريع',
           },

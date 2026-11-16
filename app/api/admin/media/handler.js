@@ -78,14 +78,18 @@ async function persistUpload(file, session, folder = 'uploads', extra = {}) {
   const originalName = safeFileName(file.name || (isImageMime(mime) ? 'image.jpg' : 'file.pdf'));
   const storedName = `${Date.now()}-${Math.random().toString(36).slice(2, 7)}-${originalName}`;
   const bytes = Buffer.from(await file.arrayBuffer());
-  let url = `${PUBLIC_PREFIX}/${storedName}`;
-  const {isBlobConfigured, putPublicFile} = await import('@/lib/persist/vercel-blob');
-  if (isBlobConfigured()) {
-    const blobUrl = await putPublicFile(`asas/media/${storedName}`, bytes, mime);
-    if (blobUrl) url = blobUrl;
-  } else {
+  const {persistPublicUpload, isServerlessFs} = await import('@/lib/persist/vercel-blob');
+  const blobUrl = await persistPublicUpload(`asas/media/${storedName}`, bytes, mime);
+  let url = blobUrl;
+  if (!url) {
+    if (isServerlessFs()) {
+      const error = new Error('Cannot write uploads on a read-only server filesystem.');
+      error.status = 503;
+      throw error;
+    }
     await mkdir(UPLOAD_DIR, {recursive: true});
     await writeFile(path.join(UPLOAD_DIR, storedName), bytes);
+    url = `${PUBLIC_PREFIX}/${storedName}`;
   }
 
   return addMedia({
@@ -170,18 +174,20 @@ export async function POST(request) {
       if (!ALLOWED_MIME.has(mime)) badRequest('Allowed types: JPEG, PNG, WebP, GIF, PDF');
 
       const originalName = safeFileName(file.name || existing.filename || 'file');
-      let publicUrl = existing.url;
-      let abs;
-      if (existing.url && String(existing.url).startsWith(PUBLIC_PREFIX)) {
-        abs = path.join(process.cwd(), 'public', String(existing.url).replace(/^\//, ''));
-      } else {
-        const storedName = `${Date.now()}-${originalName}`;
+      const storedName = `${Date.now()}-${Math.random().toString(36).slice(2, 7)}-${originalName}`;
+      const bytes = Buffer.from(await file.arrayBuffer());
+      const {persistPublicUpload, isServerlessFs} = await import('@/lib/persist/vercel-blob');
+      let publicUrl = await persistPublicUpload(`asas/media/${storedName}`, bytes, mime);
+      if (!publicUrl) {
+        if (isServerlessFs()) {
+          const error = new Error('Cannot write uploads on a read-only server filesystem.');
+          error.status = 503;
+          throw error;
+        }
         await mkdir(UPLOAD_DIR, {recursive: true});
-        abs = path.join(UPLOAD_DIR, storedName);
+        await writeFile(path.join(UPLOAD_DIR, storedName), bytes);
         publicUrl = `${PUBLIC_PREFIX}/${storedName}`;
       }
-      await mkdir(path.dirname(abs), {recursive: true});
-      await writeFile(abs, Buffer.from(await file.arrayBuffer()));
 
       const item = await updateMedia(replaceId, {
         url: publicUrl,

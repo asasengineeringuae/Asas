@@ -25,7 +25,7 @@
     "name": "Department of Municipalities and Transport",
     "nameAr": "دائرة البلديات والنقل",
     "relationship": "AUTHORITY",
-    "logo": "/assets/asas/clients/department-of-municipalities-and-transport.svg"
+    "logo": "/assets/asas/clients/department-of-municipalities-and-transport.png"
   },
   {
     "id": "abu-dhabi-ded",
@@ -39,28 +39,28 @@
     "name": "Abu Dhabi Chamber",
     "nameAr": "غرفة أبوظبي",
     "relationship": "AUTHORITY",
-    "logo": "/assets/asas/clients/abu-dhabi-chamber.svg"
+    "logo": "/assets/asas/clients/abu-dhabi-chamber.png"
   },
   {
     "id": "abu-dhabi-adek",
     "name": "Department of Education and Knowledge",
     "nameAr": "دائرة التعليم والمعرفة",
     "relationship": "AUTHORITY",
-    "logo": "/assets/asas/clients/abu-dhabi-adek.svg"
+    "logo": "/assets/asas/clients/abu-dhabi-adek.png"
   },
   {
     "id": "abu-dhabi-municipality",
     "name": "Abu Dhabi Municipality",
     "nameAr": "بلدية أبوظبي",
     "relationship": "AUTHORITY",
-    "logo": "/assets/asas/clients/abu-dhabi-municipality.svg"
+    "logo": "/assets/asas/clients/abu-dhabi-municipality.png"
   },
   {
     "id": "adssc",
     "name": "TAQA Water Solutions",
     "nameAr": "طاقة لحلول المياه",
     "relationship": "AUTHORITY",
-    "logo": "/assets/asas/clients/adssc.svg"
+    "logo": "/assets/asas/clients/adssc.png"
   },
   {
     "id": "adnoc",
@@ -74,7 +74,7 @@
     "name": "Modon",
     "nameAr": "مدن",
     "relationship": "AUTHORITY",
-    "logo": "/assets/asas/clients/modon.svg"
+    "logo": "/assets/asas/clients/modon.png"
   },
   {
     "id": "aldar",
@@ -109,7 +109,7 @@
     "name": "MPM Properties",
     "nameAr": "MPM للعقارات",
     "relationship": "PARTNER",
-    "logo": "/assets/asas/clients/mpm-properties.svg"
+    "logo": "/assets/asas/clients/mpm-properties.png"
   },
   {
     "id": "national-museum",
@@ -130,14 +130,14 @@
     "name": "Relaam (ADCP)",
     "nameAr": "رِلام (ADCP)",
     "relationship": "PARTNER",
-    "logo": "/assets/asas/clients/adcp-properties.svg"
+    "logo": "/assets/asas/clients/adcp-properties.png"
   },
   {
     "id": "fab",
     "name": "FAB — Citizen Housing Loans",
     "nameAr": "بنك أبوظبي الأول — قروض الإسكان للمواطنين",
     "relationship": "PARTNER",
-    "logo": "/assets/asas/clients/fab.svg"
+    "logo": "/assets/asas/clients/fab.png"
   },
   {
     "id": "military-housing",
@@ -151,7 +151,7 @@
     "name": "Ministry of Interior",
     "nameAr": "وزارة الداخلية",
     "relationship": "AUTHORITY",
-    "logo": "/assets/asas/clients/ministry-of-interior.svg"
+    "logo": "/assets/asas/clients/ministry-of-interior.png"
   },
   {
     "id": "civil-defence",
@@ -165,7 +165,7 @@
     "name": "SANAD Abu Dhabi",
     "nameAr": "سند أبوظبي",
     "relationship": "AUTHORITY",
-    "logo": "/assets/asas/clients/sanad.svg"
+    "logo": "/assets/asas/clients/sanad.png"
   },
   {
     "id": "federal-tax-authority",

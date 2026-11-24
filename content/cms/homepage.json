@@ -112,8 +112,8 @@
     {
       "id": "labor-community",
       "slug": "labor-community-meg",
-      "image": "/assets/asas/projects-client/labor-community-meg/labor-community-meg-01.jpg",
-      "crop": "50% 45%",
+      "image": "/assets/asas/projects-client/labor-community-meg/labor-community-meg-13.jpg",
+      "crop": "50% 40%",
       "strip": "Labour Community",
       "stripAr": "مجمع عمال",
       "location": "Khalifa Industrial City B, Abu Dhabi",
@@ -150,7 +150,8 @@
           "مفهوم"
         ]
       ],
-      "enabled": true
+      "enabled": true,
+      "video": "/assets/asas/projects-client/labor-community-meg/labor-community-meg-video-01.mp4"
     },
     {
       "id": "amwaj",

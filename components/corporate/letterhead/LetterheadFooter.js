@@ -31,7 +31,7 @@ export default function LetterheadFooter({
 
   const phone = doc?.footerPhone || company?.phone || '+971 2 63 11 320';
   const mobile = doc?.footerMobile || company?.mobile || '+971 55 410 5649';
-  const email = doc?.footerEmail || company?.email || 'asas@asasengg.ae';
+  const email = doc?.footerEmail || company?.email || 'bahaa@asasengg.ae';
   const website = doc?.footerWebsite || company?.website || 'www.asasengg.ae';
   const websiteDisplay = String(website)
     .replace(/^https?:\/\//i, '')

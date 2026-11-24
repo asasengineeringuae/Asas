@@ -13,7 +13,7 @@ export const company = {
   mobile: '+971 55 410 5649',
   whatsapp: '971554105649',
   fax: '+971 2 63 16 555',
-  email: 'asas@asasengg.ae',
+  email: 'bahaa@asasengg.ae',
   website: 'www.asasengg.ae',
   poBox: 'P.O. Box 114789',
   poBoxAr: 'ص.ب. 114789',
@@ -48,7 +48,7 @@ export const offices = [
     lat: 24.3638,
     lng: 54.5142,
     phone: '+971 2 63 11 320',
-    email: 'asas@asasengg.ae',
+    email: 'bahaa@asasengg.ae',
   },
   {
     id: 'dubai',
@@ -69,7 +69,7 @@ export const offices = [
     mapQuery: 'Al Baraha Deira, Dubai, UAE',
     lat: 25.2755,
     lng: 55.3168,
-    email: 'dubai@asasengg.ae',
+    email: 'bahaa@asasengg.ae',
   },
   {
     id: 'syria',
@@ -88,7 +88,7 @@ export const offices = [
     mapQuery: 'Abu Rummaneh, Damascus, Syria',
     lat: 33.5193,
     lng: 36.2874,
-    email: 'syria@asasengg.ae',
+    email: 'bahaa@asasengg.ae',
   },
 ];
 

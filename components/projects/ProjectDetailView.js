@@ -782,6 +782,39 @@ export default function ProjectDetailView({
         </div>
       </section>
 
+      {Array.isArray(project.videos) && project.videos.length ? (
+        <section className="pd-section" id="videos">
+          <div className="pd-shell">
+            <div className="pd-gallery-head">
+              <div>
+                <p className="pd-kicker">
+                  <i />
+                  {ar ? 'فيديو المشروع' : 'Project video'}
+                </p>
+                <h2>{ar ? 'جولات المشروع' : 'Walkthroughs'}</h2>
+              </div>
+            </div>
+            <div className="pd-gallery-strip">
+              {project.videos.map((item) => (
+                <figure key={item.src}>
+                  <video
+                    src={item.src}
+                    poster={item.poster || undefined}
+                    controls
+                    playsInline
+                    preload="metadata"
+                    style={{width: '100%', height: '100%', objectFit: 'cover', background: '#111'}}
+                  />
+                  <figcaption>
+                    <em>{ar ? item.titleAr || item.title : item.title}</em>
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
+
       <section className="pd-section" id="gallery">
         <div className="pd-shell">
           <div className="pd-gallery-head">

@@ -21,6 +21,10 @@ function embedSrc(item) {
   return '';
 }
 
+function fileSrc(item) {
+  return item.fileUrl || item.src || '';
+}
+
 export default function VideosExperience({locale, videos = [], chrome = {}}) {
   const ar = locale === 'ar';
   const [activeId, setActiveId] = useState(null);
@@ -215,16 +219,20 @@ export default function VideosExperience({locale, videos = [], chrome = {}}) {
             <X size={22} />
           </button>
           <div className="vd-lightbox-frame" onClick={(event) => event.stopPropagation()}>
-            <iframe
-              src={
-                embedSrc(active).includes('?')
-                  ? `${embedSrc(active)}${embedSrc(active).includes('autoplay=1') ? '' : '&autoplay=1'}`
-                  : `${embedSrc(active)}?autoplay=1`
-              }
-              title={active.title}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
+            {fileSrc(active) ? (
+              <video src={fileSrc(active)} poster={active.thumbnail || undefined} controls autoPlay playsInline />
+            ) : (
+              <iframe
+                src={
+                  embedSrc(active).includes('?')
+                    ? `${embedSrc(active)}${embedSrc(active).includes('autoplay=1') ? '' : '&autoplay=1'}`
+                    : `${embedSrc(active)}?autoplay=1`
+                }
+                title={active.title}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            )}
           </div>
           <p className="vd-lightbox-title">{active.title}</p>
         </div>

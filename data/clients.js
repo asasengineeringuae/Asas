@@ -72,7 +72,7 @@ export const clients = [
     name: 'ADNOC',
     nameAr: 'أدنوك',
     relationship: 'AUTHORITY',
-    logo: '/assets/asas/clients/adnoc.svg',
+    logo: '/assets/asas/clients/adnoc.png',
   },
   {
     id: 'modon',
@@ -86,14 +86,14 @@ export const clients = [
     name: 'Aldar Properties',
     nameAr: 'الدار العقارية',
     relationship: 'PARTNER',
-    logo: '/assets/asas/clients/aldar.svg',
+    logo: '/assets/asas/clients/aldar.png',
   },
   {
     id: 'abu-dhabi-police',
     name: 'Abu Dhabi Police',
     nameAr: 'شرطة أبوظبي',
     relationship: 'AUTHORITY',
-    logo: '/assets/asas/clients/abu-dhabi-police.svg',
+    logo: '/assets/asas/clients/abu-dhabi-police.png',
   },
   {
     id: 'presidential-court',
@@ -177,7 +177,7 @@ export const clients = [
     name: 'Federal Tax Authority',
     nameAr: 'الهيئة الاتحادية للضرائب',
     relationship: 'AUTHORITY',
-    logo: '/assets/asas/clients/federal-tax-authority.svg',
+    logo: '/assets/asas/clients/federal-tax-authority.png',
   },
 ];
 

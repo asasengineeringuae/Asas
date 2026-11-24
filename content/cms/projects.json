@@ -25,16 +25,19 @@
       "studies-specifications"
     ],
     "kind": "study",
-    "image": "/assets/asas/projects-client/labor-community-meg/labor-community-meg-01.jpg",
+    "image": "/assets/asas/projects-client/labor-community-meg/labor-community-meg-13.jpg",
     "imageAsset": {
       "id": "labor-community-meg",
       "classification": "PROJECT_PHOTO",
       "qualityTier": "A_PROJECT_HERO",
       "status": "APPROVED_FOR_CARDS",
-      "card": "/assets/asas/projects-client/labor-community-meg/labor-community-meg-01.jpg",
-      "portfolio": "/assets/asas/projects-client/labor-community-meg/labor-community-meg-01.jpg",
+      "card": "/assets/asas/projects-client/labor-community-meg/labor-community-meg-13.jpg",
+      "portfolio": "/assets/asas/projects-client/labor-community-meg/labor-community-meg-13.jpg",
       "mobile": "/assets/asas/projects-client/labor-community-meg/labor-community-meg-02.jpg",
       "gallery": [
+        "/assets/asas/projects-client/labor-community-meg/labor-community-meg-13.jpg",
+        "/assets/asas/projects-client/labor-community-meg/labor-community-meg-14.jpg",
+        "/assets/asas/projects-client/labor-community-meg/labor-community-meg-12.jpg",
         "/assets/asas/projects-client/labor-community-meg/labor-community-meg-01.jpg",
         "/assets/asas/projects-client/labor-community-meg/labor-community-meg-02.jpg",
         "/assets/asas/projects-client/labor-community-meg/labor-community-meg-03.jpg",
@@ -49,11 +52,14 @@
       ]
     },
     "visual": {
-      "src": "/assets/asas/projects-client/labor-community-meg/labor-community-meg-01.jpg",
+      "src": "/assets/asas/projects-client/labor-community-meg/labor-community-meg-13.jpg",
       "crop": "50% 50%",
       "classification": "PROJECT_PHOTO"
     },
     "images": [
+      "/assets/asas/projects-client/labor-community-meg/labor-community-meg-13.jpg",
+      "/assets/asas/projects-client/labor-community-meg/labor-community-meg-14.jpg",
+      "/assets/asas/projects-client/labor-community-meg/labor-community-meg-12.jpg",
       "/assets/asas/projects-client/labor-community-meg/labor-community-meg-01.jpg",
       "/assets/asas/projects-client/labor-community-meg/labor-community-meg-02.jpg",
       "/assets/asas/projects-client/labor-community-meg/labor-community-meg-03.jpg",
@@ -67,6 +73,9 @@
       "/assets/asas/projects-client/labor-community-meg/labor-community-meg-11.jpg"
     ],
     "gallery": [
+      "/assets/asas/projects-client/labor-community-meg/labor-community-meg-13.jpg",
+      "/assets/asas/projects-client/labor-community-meg/labor-community-meg-14.jpg",
+      "/assets/asas/projects-client/labor-community-meg/labor-community-meg-12.jpg",
       "/assets/asas/projects-client/labor-community-meg/labor-community-meg-01.jpg",
       "/assets/asas/projects-client/labor-community-meg/labor-community-meg-02.jpg",
       "/assets/asas/projects-client/labor-community-meg/labor-community-meg-03.jpg",
@@ -82,7 +91,21 @@
     "needsOriginalImage": false,
     "featured": true,
     "source": "client-whatsapp-2026-11-02",
-    "displayOrder": 1
+    "displayOrder": 1,
+    "videos": [
+      {
+        "src": "/assets/asas/projects-client/labor-community-meg/labor-community-meg-video-01.mp4",
+        "poster": "/assets/asas/projects-client/labor-community-meg/labor-community-meg-video-01.jpg",
+        "title": "Labour Community walkthrough",
+        "titleAr": "جولة مجمع العمال"
+      },
+      {
+        "src": "/assets/asas/projects-client/labor-community-meg/labor-community-meg-video-02.mp4",
+        "poster": "/assets/asas/projects-client/labor-community-meg/labor-community-meg-video-02.jpg",
+        "title": "Labour Community aerial walkthrough",
+        "titleAr": "جولة جوية لمجمع العمال"
+      }
+    ]
   },
   {
     "status": "published",

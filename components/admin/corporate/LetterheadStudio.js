@@ -1194,7 +1194,7 @@ export default function LetterheadStudio({
             className="lhs-input"
             value={doc.footerEmail || ''}
             disabled={!canWrite}
-            placeholder={adminText("asas@asasengg.ae")}
+            placeholder={adminText("bahaa@asasengg.ae")}
             onChange={(e) => setField('footerEmail', e.target.value)}
           />
         </label>

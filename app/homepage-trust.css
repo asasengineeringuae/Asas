@@ -110,21 +110,21 @@ html.asas-motion[dir='rtl'] .asas-clients-marquee:not(.is-static) .asas-clients-
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 6px;
   width: 188px;
   min-width: 188px;
   height: 96px;
   min-height: 96px;
-  padding: 14px 16px;
+  padding: 10px 12px;
   border: 1px solid rgba(7, 4, 99, 0.1);
   border-radius: 6px;
-  background: #fafafc;
+  background: #fff;
   box-sizing: border-box;
+  overflow: hidden;
   transition: border-color 0.25s ease, background 0.25s ease;
 }
 
 .asas-clients-logo.has-logo {
-  padding: 12px 14px;
+  padding: 10px 12px;
 }
 
 .asas-clients-logo-frame {
@@ -133,16 +133,19 @@ html.asas-motion[dir='rtl'] .asas-clients-marquee:not(.is-static) .asas-clients-
   justify-content: center;
   width: 100%;
   height: 100%;
-  padding: 2px;
+  padding: 0;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 .asas-clients-logo-img {
-  width: auto !important;
-  height: auto !important;
-  max-width: 74%;
-  max-height: 58px;
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100%;
+  max-height: 100%;
   object-fit: contain;
+  object-position: center;
 }
 
 .asas-clients-sr-only {

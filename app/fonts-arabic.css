@@ -1,10 +1,9 @@
 /* =========================================================
    ASAS ARABIC FONT SYSTEM — single source of truth
-   Primary: Almarai (next/font)
-   Fallback: Noto Kufi Arabic
+   Primary: Alexandria (same family as u.ae Arabic)
    ========================================================= */
 
-/* Almarai is loaded via next/font in lib/fonts.js */
+/* Alexandria is loaded via next/font in lib/fonts.js */
 
 /*
 @font-face {
@@ -44,8 +43,8 @@
   /* English UI stack */
   --asas-font-en: "Microsoft PhagsPa", "Segoe UI", Arial, sans-serif;
 
-  /* Arabic UI — Almarai */
-  --asas-font-ar: var(--font-almarai), "Almarai", "Noto Kufi Arabic", Tahoma, sans-serif;
+  /* Arabic UI — Alexandria */
+  --asas-font-ar: var(--font-alexandria), "Alexandria", Tahoma, sans-serif;
 
   /* Active stack (switched by locale below) */
   --asas-font: var(--asas-font-en);

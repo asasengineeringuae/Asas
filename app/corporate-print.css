@@ -139,7 +139,7 @@
 
 .lh-a4-page[lang='ar'],
 .lh-a4-page[dir='rtl'] {
-  font-family: var(--font-almarai), 'Almarai', 'Noto Kufi Arabic', Tahoma, sans-serif;
+  font-family: var(--font-alexandria), 'Alexandria', Tahoma, sans-serif;
 }
 
 /* Zones — heights locked by grid; content cannot stretch them */
@@ -828,7 +828,7 @@
 
 .lh-page[dir='rtl'],
 .lh-page[lang='ar'] {
-  font-family: var(--font-almarai), 'Almarai', 'Noto Kufi Arabic',
+  font-family: var(--font-alexandria), 'Alexandria',
     Tahoma, sans-serif;
 }
 

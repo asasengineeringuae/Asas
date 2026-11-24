@@ -35,7 +35,7 @@
 
   /* Typography */
   --asas-font-en: "Microsoft PhagsPa", "Segoe UI", Arial, sans-serif;
-  --asas-font-ar: var(--font-almarai), "Almarai", "Noto Kufi Arabic", Tahoma, sans-serif;
+  --asas-font-ar: var(--font-alexandria), "Alexandria", Tahoma, sans-serif;
   --asas-font: var(--asas-font-en);
   --asas-display: clamp(48px, 5vw, 76px);
   --asas-h1: clamp(48px, 4.2vw, 60px);

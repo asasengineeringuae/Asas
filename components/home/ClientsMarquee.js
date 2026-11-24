@@ -7,7 +7,11 @@ function LogoChip({client, ar, inert}) {
   const label = ar ? client.nameAr : client.name;
 
   return (
-    <div className="asas-clients-logo has-logo" title={label} aria-hidden={inert || undefined}>
+    <div
+      className={`asas-clients-logo has-logo asas-clients-logo--${client.id}`}
+      title={label}
+      aria-hidden={inert || undefined}
+    >
       <span className="asas-clients-logo-frame">
         {/* Native img: preserves SVG geometry and avoids optimizer edge-cases on small viewports */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -15,8 +19,6 @@ function LogoChip({client, ar, inert}) {
           src={client.logo}
           alt={inert ? '' : `${label} ${ar ? 'شعار' : 'logo'}`}
           className="asas-clients-logo-img"
-          width={180}
-          height={72}
           loading="eager"
           decoding="async"
           draggable={false}

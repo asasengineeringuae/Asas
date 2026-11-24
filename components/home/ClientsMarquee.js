@@ -3,12 +3,16 @@
 import {useEffect, useState} from 'react';
 import {clients as clientsSeed, clientsCopy} from '@/data/clients';
 
+/** Marks that were exported as white artwork and vanish on a white tile. */
+const LIGHT_MARKS = new Set(['aldar', 'presidential-court']);
+
 function LogoChip({client, ar, inert}) {
   const label = ar ? client.nameAr : client.name;
+  const light = LIGHT_MARKS.has(client.id);
 
   return (
     <div
-      className={`asas-clients-logo has-logo asas-clients-logo--${client.id}`}
+      className={`asas-clients-logo has-logo asas-clients-logo--${client.id}${light ? ' is-light' : ''}`}
       title={label}
       aria-hidden={inert || undefined}
     >

@@ -148,6 +148,19 @@ html.asas-motion[dir='rtl'] .asas-clients-marquee:not(.is-static) .asas-clients-
   object-position: center;
 }
 
+/* White-on-white marks: navy plate, or invert a black-square PNG */
+.asas-clients-logo.is-light {
+  background: #070463;
+}
+
+.asas-clients-logo--aldar {
+  background: #fff;
+}
+
+.asas-clients-logo--aldar .asas-clients-logo-img {
+  filter: invert(1);
+}
+
 .asas-clients-sr-only {
   position: absolute;
   width: 1px;

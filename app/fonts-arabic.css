@@ -50,7 +50,11 @@
   --asas-font: var(--asas-font-en);
 }
 
-/* Locale switches — keep tokens in sync everywhere */
+/*
+  Arabic type scale — measured from u.ae/ar at 1440px:
+  nav/kicker 15px medium, body 16px, h3 24px, h2 32px, h1 ~37px.
+  Headings: Alexandria 400/500, line-height ~1.5 (not tight English display).
+*/
 html[dir='rtl'],
 html.locale-ar,
 html[data-locale='ar'] {
@@ -59,29 +63,106 @@ html[data-locale='ar'] {
   --tm-font: var(--asas-font-ar);
   --asas-tracking-display: 0;
   --asas-tracking-label: 0;
-  --asas-display: clamp(36px, 3.8vw, 56px);
-  --asas-h1: clamp(32px, 3.2vw, 46px);
-  --asas-h2: clamp(28px, 2.8vw, 38px);
-  --asas-h3: clamp(20px, 2vw, 26px);
-  --asas-h4: clamp(17px, 1.5vw, 21px);
+  --asas-display: clamp(28px, 2.6vw, 38px);
+  --asas-h1: clamp(28px, 2.6vw, 38px);
+  --asas-h2: clamp(24px, 2.2vw, 32px);
+  --asas-h3: clamp(20px, 1.7vw, 24px);
+  --asas-h4: 16px;
   --asas-body-lg: 16px;
   --asas-body: 16px;
-  --asas-nav: 14px;
+  --asas-small: 14px;
+  --asas-label: 15px;
+  --asas-nav: 15px;
   --asas-btn: 14px;
+  --asas-lh-display: 1.5;
+  --asas-lh-heading: 1.5;
+  --asas-lh-body: 1.65;
+  --type-body: 16px;
+  --type-lede: 16px;
+  --type-small: 14px;
+  --type-label: 15px;
+  --type-nav: 15px;
+  --type-h1: var(--asas-h1);
+  --type-h2: var(--asas-h2);
+  --type-h3: var(--asas-h3);
+  --type-lh-tight: 1.5;
+  --type-tracking-display: 0;
+  --type-tracking-label: 0;
   font-family: var(--asas-font-ar);
-  font-size: 15px;
+  font-size: 16px;
 }
 
+html[dir='rtl'] body,
+html.locale-ar body {
+  font-size: 16px;
+  line-height: 1.65;
+  font-weight: 400;
+}
+
+html[dir='rtl'] h1,
+html[dir='rtl'] .page-hero h1,
+html[dir='rtl'] .asas-hero-copy h1,
 html[dir='rtl'] .asas-ph-title,
+html.locale-ar h1,
 html.locale-ar .asas-ph-title {
-  font-size: clamp(40px, 4vw, 68px);
-  line-height: 1.05;
+  font-size: var(--asas-h1);
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0;
 }
 
+html[dir='rtl'] h2,
 html[dir='rtl'] .hp-about-copy h2,
-html.locale-ar .hp-about-copy h2 {
-  font-size: clamp(28px, 3vw, 40px);
-  line-height: 1.18;
+html[dir='rtl'] .asas-clients-head h2,
+html[dir='rtl'] .asas-t-head h2,
+html.locale-ar h2 {
+  font-size: var(--asas-h2);
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+
+html[dir='rtl'] h3,
+html.locale-ar h3 {
+  font-size: var(--asas-h3);
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+html[dir='rtl'] h4,
+html.locale-ar h4 {
+  font-size: var(--asas-h4);
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+html[dir='rtl'] .header .nav nav,
+html[dir='rtl'] .header .nav nav a,
+html[dir='rtl'] .asas-nav a,
+html.locale-ar .header .nav nav a {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0;
+}
+
+html[dir='rtl'] .eyebrow,
+html[dir='rtl'] .atlas-kicker,
+html[dir='rtl'] .section-label,
+html.locale-ar .atlas-kicker {
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+  line-height: 1.2;
+}
+
+html[dir='rtl'] .button,
+html[dir='rtl'] .atlas-primary,
+html[dir='rtl'] .nav-cta,
+html[dir='rtl'] .asas-action {
+  font-size: 14px;
+  font-weight: 500;
 }
 
 html[dir='ltr'],

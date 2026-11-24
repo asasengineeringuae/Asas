@@ -43,7 +43,7 @@ export default async function LocaleLayout({children, params}) {
   ]);
 
   const branding = normalizeBranding(siteSettings?.branding);
-  const featuredServices = (allServices || []).filter((service) => service.featured).slice(0, 7);
+  const featuredServices = (allServices || []).filter((service) => service.featured).slice(0, 8);
   const social = siteSettings?.socialLinks || {};
   const sameAs = [
     ...(Array.isArray(seoSettings.sameAs) ? seoSettings.sameAs : []),

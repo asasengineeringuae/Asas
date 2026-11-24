@@ -3,16 +3,18 @@
 import {useState} from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import {ArrowRight, Building2, CheckCircle2, ClipboardCheck, Layers3, Ruler} from 'lucide-react';
+import {Building2, CheckCircle2, ClipboardCheck, Layers3, Ruler, Sofa, Waypoints} from 'lucide-react';
 import {ActionButton} from '@/components/ActionButton';
 import {homeDisciplineImages} from '@/data/image-manifest';
 
 const shortTitles = {
   'architectural-design': {en: 'Architecture', ar: 'العمارة'},
-  'civil-structural-engineering': {en: 'Structural', ar: 'الإنشاءات'},
-  'mep-engineering-design': {en: 'MEP', ar: 'الكهروميكانيكية'},
-  'quantities-cost': {en: 'QS', ar: 'الكميات'},
-  'project-management': {en: 'PM', ar: 'الإدارة'},
+  'civil-structural-engineering': {en: 'Structural Engineering', ar: 'الهندسة الإنشائية'},
+  'mep-engineering-design': {en: 'Electromechanical Engineering', ar: 'الهندسة الكهروميكانيكية'},
+  'quantities-cost': {en: 'Quantity Surveying', ar: 'حصر الكميات'},
+  'project-management': {en: 'Project Management', ar: 'إدارة المشاريع'},
+  'infrastructure-urban-planning': {en: 'Infrastructure', ar: 'البنية التحتية'},
+  'interior-design': {en: 'Interior Design', ar: 'التصميم الداخلي'},
 };
 
 const icons = {
@@ -21,6 +23,8 @@ const icons = {
   'mep-engineering-design': Layers3,
   'quantities-cost': ClipboardCheck,
   'project-management': ClipboardCheck,
+  'infrastructure-urban-planning': Waypoints,
+  'interior-design': Sofa,
 };
 
 export default function ServicesTabs({locale, services}) {
@@ -38,10 +42,10 @@ export default function ServicesTabs({locale, services}) {
       <div className="home-shell">
         <div className="insp-center-head">
           <p className="atlas-kicker center">{ar ? 'تخصصاتنا' : 'Our disciplines'}</p>
-          <h2>{ar ? 'تخصصات هندسية في مكتب واحد' : 'One consultancy, five core disciplines'}</h2>
+          <h2>{ar ? 'تخصصات هندسية في مكتب واحد' : 'One consultancy, seven core disciplines'}</h2>
           <p>{ar
-            ? 'تغطي أساس للاستشارات الهندسية وإدارة المشاريع العمارة والإنشاءات والأعمال الكهروميكانيكية والكميات وإدارة المشاريع ضمن عمل منسق.'
-            : 'Architecture, structure, electromechanical services, quantity surveying and project management checked together before issue.'}</p>
+            ? 'تغطي أساس العمارة والهندسة الإنشائية والكهروميكانيكية وحصر الكميات وإدارة المشاريع والبنية التحتية والتصميم الداخلي ضمن عمل منسق.'
+            : 'Architecture, structural engineering, electromechanical engineering, quantity surveying, project management, infrastructure and interior design checked together before issue.'}</p>
         </div>
 
         <div className="insp-tabs" role="tablist">

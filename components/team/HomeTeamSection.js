@@ -38,19 +38,33 @@ function detectNetwork(label = '', url = '') {
   return '';
 }
 
-/** Build LinkedIn + Instagram + Facebook + YouTube for a member (company fallback). */
+function isPersonalLinkedIn(url) {
+  if (!url) return false;
+  try {
+    const parsed = new URL(url);
+    if (!parsed.hostname.includes('linkedin.com')) return false;
+    return /\/in\//i.test(parsed.pathname);
+  } catch {
+    return false;
+  }
+}
+
+/** Company Instagram / Facebook / YouTube; LinkedIn is personal when a profile URL exists. */
 function resolveMemberSocials(member) {
-  const personal = {};
-  if (member?.linkedin_url) personal.linkedin = member.linkedin_url;
+  let personalLinkedIn = '';
+  if (isPersonalLinkedIn(member?.linkedin_url)) personalLinkedIn = member.linkedin_url;
   for (const link of member?.social_links || []) {
     const id = detectNetwork(link.label, link.url);
-    if (id && link.url) personal[id] = link.url;
+    if (id === 'linkedin' && isPersonalLinkedIn(link.url)) personalLinkedIn = link.url;
   }
 
   return socialNetworks
     .map((network) => ({
       id: network.id,
-      href: personal[network.id] || socialLinks[network.id] || network.href,
+      href:
+        network.id === 'linkedin' && personalLinkedIn
+          ? personalLinkedIn
+          : socialLinks[network.id] || network.href,
       labelKey: network.labelKey,
       ariaKey: network.ariaKey,
     }))

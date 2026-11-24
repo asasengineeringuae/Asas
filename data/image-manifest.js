@@ -348,6 +348,8 @@ export const homeDisciplineImages = {
   'mep-engineering-design': roleImages.HOME_DISC_MEP,
   'quantities-cost': roleImages.HOME_DISC_QS,
   'project-management': roleImages.HOME_DISC_PM,
+  'infrastructure-urban-planning': roleImages.HOME_SECTOR_INFRASTRUCTURE,
+  'interior-design': roleImages.HOME_SECTOR_INTERIORS,
 };
 
 /** @deprecated Prefer roleImages — kept for gradual migration aliases */

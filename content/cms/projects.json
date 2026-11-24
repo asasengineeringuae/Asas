@@ -179,8 +179,8 @@
     "status": "published",
     "id": 64,
     "slug": "villa-al-rumaithi",
-    "title": "Al-Rumaithi Villa Interiors",
-    "titleAr": "تصميم داخلي لفيلا الرميثي",
+    "title": "Private Villa Interiors",
+    "titleAr": "تصميم داخلي لفيلا خاصة",
     "category": "interior-design",
     "sector": "interior-design",
     "sectors": [
@@ -190,9 +190,9 @@
     "locationAr": "أبوظبي",
     "locationShort": "Abu Dhabi",
     "locationShortAr": "أبوظبي",
-    "description": "Interior design for Al-Rumaithi Villa: ground-floor majlis, dining, family sitting, entrance, kitchen and guest rooms, plus first-floor master suite, family sitting and bedrooms. Exterior elevations from the same study are not published.",
-    "descriptionAr": "تصميم داخلي لفيلا الرميثي: مجلس وطعام وجلوس عائلة ومدخل ومطبخ وغرف ضيوف في الأرضي، مع جناح الماستر وجلوس العائلة وغرف النوم في الأول. الواجهات الخارجية من الدراسة نفسها غير منشورة.",
-    "scope": "Interior design · Al-Rumaithi Villa",
+    "description": "Interior design for a private villa: ground-floor majlis, dining, family sitting, entrance, kitchen and guest rooms, plus first-floor master suite, family sitting and bedrooms. Exterior elevations from the same study are not published.",
+    "descriptionAr": "تصميم داخلي لفيلا خاصة: مجلس وطعام وجلوس عائلة ومدخل ومطبخ وغرف ضيوف في الأرضي، مع جناح الماستر وجلوس العائلة وغرف النوم في الأول. الواجهات الخارجية من الدراسة نفسها غير منشورة.",
+    "scope": "Interior design · Private villa",
     "services": [
       "interior-design",
       "architectural-design"

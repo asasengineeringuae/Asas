@@ -331,12 +331,12 @@ html[data-theme='dark'] .asas-scroll-top:hover {
   top: auto !important;
   width: var(--asas-float-size) !important;
   height: var(--asas-float-size) !important;
-  background: var(--asas-rust, #a02315) !important;
+  background: #25d366 !important;
   color: #fff !important;
 }
 
 .whatsapp:hover {
-  background: var(--asas-rust-hover, #801c11) !important;
+  background: #1ebe5d !important;
   color: #fff !important;
 }
 

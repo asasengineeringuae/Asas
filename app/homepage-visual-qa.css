@@ -716,16 +716,16 @@ html[dir='rtl'] .atlas-home .insp-ticker-track {
   height: 52px !important;
   display: grid !important;
   place-items: center !important;
-  background: #a02315 !important;
+  background: #25d366 !important;
   color: #fff !important;
   border-radius: 50% !important;
-  box-shadow: 0 6px 20px rgba(160, 35, 21, 0.35) !important;
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4) !important;
   pointer-events: auto !important;
   transition: background-color 0.2s ease, transform 0.2s ease !important;
 }
 
 .whatsapp:hover {
-  background: #801c11 !important;
+  background: #1ebe5d !important;
   color: #fff !important;
 }
 

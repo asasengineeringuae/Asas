@@ -68,6 +68,48 @@
   ],
   "heroSlides": [
     {
+      "id": "four-towers",
+      "slug": "four-towers-al-nahda",
+      "image": "/assets/asas/projects-client/four-towers-al-nahda/four-towers-al-nahda-01.jpg",
+      "crop": "50% 40%",
+      "strip": "Four Towers",
+      "stripAr": "أربعة أبراج",
+      "location": "Al Nahda, Sharjah",
+      "locationAr": "النهدة، الشارقة",
+      "title": "Four Towers, Al Nahda",
+      "titleAr": "أربعة أبراج، النهدة",
+      "note": "Four towers consisting of 3 basement levels, 6 podium levels, 6 parking levels and 37 floors. Architectural, civil & structural, MEP, Etisalat, drainage, quantities and specification design.",
+      "noteAr": "أربعة أبراج تتكون من 3 طوابق سفلية و6 طوابق منصة و6 طوابق مواقف و37 طابقاً. يشمل نطاق العمل التصميم المعماري والإنشائي والكهروميكانيكي والاتصالات والصرف والكميات والمواصفات.",
+      "facts": [
+        [
+          "Towers",
+          "4"
+        ],
+        [
+          "Floors",
+          "37"
+        ],
+        [
+          "Scope",
+          "A / S / MEP"
+        ]
+      ],
+      "factsAr": [
+        [
+          "أبراج",
+          "4"
+        ],
+        [
+          "طوابق",
+          "37"
+        ],
+        [
+          "النطاق",
+          "A / S / MEP"
+        ]
+      ]
+    },
+    {
       "id": "labor-community",
       "slug": "labor-community-meg",
       "image": "/assets/asas/projects-client/labor-community-meg/labor-community-meg-01.jpg",
@@ -109,48 +151,6 @@
         ]
       ],
       "enabled": true
-    },
-    {
-      "id": "four-towers",
-      "slug": "four-towers-al-nahda",
-      "image": "/assets/asas/projects-client/four-towers-al-nahda/four-towers-al-nahda-01.jpg",
-      "crop": "50% 40%",
-      "strip": "Four Towers",
-      "stripAr": "أربعة أبراج",
-      "location": "Al Nahda, Sharjah",
-      "locationAr": "النهدة، الشارقة",
-      "title": "Four Towers, Al Nahda",
-      "titleAr": "أربعة أبراج، النهدة",
-      "note": "Four towers consisting of 3 basement levels, 6 podium levels, 6 parking levels and 37 floors. Architectural, civil & structural, MEP, Etisalat, drainage, quantities and specification design.",
-      "noteAr": "أربعة أبراج تتكون من 3 طوابق سفلية و6 طوابق منصة و6 طوابق مواقف و37 طابقاً. يشمل نطاق العمل التصميم المعماري والإنشائي والكهروميكانيكي والاتصالات والصرف والكميات والمواصفات.",
-      "facts": [
-        [
-          "Towers",
-          "4"
-        ],
-        [
-          "Floors",
-          "37"
-        ],
-        [
-          "Scope",
-          "A / S / MEP"
-        ]
-      ],
-      "factsAr": [
-        [
-          "أبراج",
-          "4"
-        ],
-        [
-          "طوابق",
-          "37"
-        ],
-        [
-          "النطاق",
-          "A / S / MEP"
-        ]
-      ]
     },
     {
       "id": "amwaj",

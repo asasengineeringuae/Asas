@@ -13,7 +13,7 @@
    empty faces can break Arabic letter joining in some browsers.
    ========================================================= */
 
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap');
+/* IBM Plex Sans Arabic is loaded via next/font in lib/fonts.js */
 
 /*
 @font-face {
@@ -53,8 +53,9 @@
   /* English UI stack */
   --asas-font-en: "Microsoft PhagsPa", "Segoe UI", Arial, sans-serif;
 
-  /* Arabic UI stack — IBM Plex until licensed DIN files are added */
-  --asas-font-ar: "IBM Plex Sans Arabic", "Noto Sans Arabic", "Segoe UI", Tahoma, sans-serif;
+  /* Arabic UI — corporate sans (IBM Plex; DIN Next Arabic if licensed files exist) */
+  --asas-font-ar: "DIN Next Arabic", var(--font-ibm-plex-arabic), "IBM Plex Sans Arabic",
+    "Noto Sans Arabic", "Segoe UI", Tahoma, sans-serif;
 
   /* Active stack (switched by locale below) */
   --asas-font: var(--asas-font-en);

@@ -57,8 +57,8 @@
   },
   {
     "id": "adssc",
-    "name": "Abu Dhabi Sewerage Services",
-    "nameAr": "صرف أبوظبي",
+    "name": "TAQA Water Solutions",
+    "nameAr": "طاقة لحلول المياه",
     "relationship": "AUTHORITY",
     "logo": "/assets/asas/clients/adssc.svg"
   },
@@ -102,7 +102,7 @@
     "name": "Abu Dhabi Awqaf",
     "nameAr": "أوقاف أبوظبي",
     "relationship": "AUTHORITY",
-    "logo": "/assets/asas/clients/abu-dhabi-awqaf.svg"
+    "logo": "/assets/asas/clients/abu-dhabi-awqaf.png"
   },
   {
     "id": "mpm-properties",
@@ -120,15 +120,15 @@
   },
   {
     "id": "zayed-charitable-foundation",
-    "name": "Zayed Charitable Foundation",
-    "nameAr": "مؤسسة زايد للأعمال الخيرية",
+    "name": "Zayed for Good",
+    "nameAr": "مؤسسة زايد الخير",
     "relationship": "INSTITUTION",
-    "logo": "/assets/asas/clients/zayed-charitable-foundation.svg"
+    "logo": "/assets/asas/clients/zayed-charitable-foundation.png"
   },
   {
     "id": "adcp-properties",
-    "name": "ADCP Properties",
-    "nameAr": "ADCP للعقارات",
+    "name": "Relaam (ADCP)",
+    "nameAr": "رِلام (ADCP)",
     "relationship": "PARTNER",
     "logo": "/assets/asas/clients/adcp-properties.svg"
   },
@@ -155,15 +155,15 @@
   },
   {
     "id": "civil-defence",
-    "name": "Civil Defence",
-    "nameAr": "الدفاع المدني",
+    "name": "Abu Dhabi Civil Defence",
+    "nameAr": "الدفاع المدني — أبوظبي",
     "relationship": "AUTHORITY",
-    "logo": "/assets/asas/clients/civil-defence.svg"
+    "logo": "/assets/asas/clients/civil-defence.png"
   },
   {
     "id": "sanad",
-    "name": "SANAD",
-    "nameAr": "سند",
+    "name": "SANAD Abu Dhabi",
+    "nameAr": "سند أبوظبي",
     "relationship": "AUTHORITY",
     "logo": "/assets/asas/clients/sanad.svg"
   },

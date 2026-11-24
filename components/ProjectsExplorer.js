@@ -118,7 +118,7 @@ function ProjectVisual({project, ar}) {
 
 function ProjectCard({project, locale, ar}) {
   const kind = projectKinds[project.kind];
-  const place = ar ? project.locationShortAr || project.locationAr : project.locationShort || project.location;
+  const place = ar ? project.locationShortAr : project.locationShort;
   return (
     <Link className="pl-card" href={`/${locale}/projects/${project.slug}`}>
       <ProjectVisual project={project} ar={ar} />
@@ -206,8 +206,8 @@ export default function ProjectsExplorer({locale, items}) {
   const featuredStats = featured ? extractStats(featured, ar) : [];
   const featuredPlace = featured
     ? ar
-      ? featured.locationAr || featured.locationShortAr
-      : featured.location || featured.locationShort
+      ? featured.locationShortAr
+      : featured.locationShort
     : '';
 
   const selectFilter = (slug) => {

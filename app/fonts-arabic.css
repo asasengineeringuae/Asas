@@ -1,19 +1,10 @@
 /* =========================================================
    ASAS ARABIC FONT SYSTEM — single source of truth
-   Primary (when licensed files exist): DIN Next Arabic
-   Live web fallbacks: IBM Plex Sans Arabic → Noto Sans Arabic
-
-   DIN Next Arabic files expected at:
-     /public/fonts/din-next-arabic/DINNextArabic-Light.woff2
-     /public/fonts/din-next-arabic/DINNextArabic-Regular.woff2
-     /public/fonts/din-next-arabic/DINNextArabic-Medium.woff2
-     /public/fonts/din-next-arabic/DINNextArabic-Bold.woff2
-
-   @font-face for DIN is disabled until those files are present —
-   empty faces can break Arabic letter joining in some browsers.
+   Primary: Almarai (next/font)
+   Fallback: Noto Kufi Arabic
    ========================================================= */
 
-/* IBM Plex Sans Arabic is loaded via next/font in lib/fonts.js */
+/* Almarai is loaded via next/font in lib/fonts.js */
 
 /*
 @font-face {
@@ -53,9 +44,8 @@
   /* English UI stack */
   --asas-font-en: "Microsoft PhagsPa", "Segoe UI", Arial, sans-serif;
 
-  /* Arabic UI — corporate sans (IBM Plex; DIN Next Arabic if licensed files exist) */
-  --asas-font-ar: "DIN Next Arabic", var(--font-ibm-plex-arabic), "IBM Plex Sans Arabic",
-    "Noto Sans Arabic", "Segoe UI", Tahoma, sans-serif;
+  /* Arabic UI — Almarai */
+  --asas-font-ar: var(--font-almarai), "Almarai", "Noto Kufi Arabic", Tahoma, sans-serif;
 
   /* Active stack (switched by locale below) */
   --asas-font: var(--asas-font-en);

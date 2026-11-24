@@ -61,7 +61,7 @@ import {THEME_BOOT_SCRIPT} from '@/lib/theme';
 import {LOCALE_HTML_BOOT} from '@/lib/i18n/locale-boot';
 import {getCmsRootMetadata} from '@/lib/cms/site-metadata';
 import {getBranding} from '@/lib/cms/branding-server';
-import {ibmPlexArabic} from '@/lib/fonts';
+import {almarai} from '@/lib/fonts';
 
 export async function generateMetadata() {
   const [cms, branding] = await Promise.all([getCmsRootMetadata(), getBranding()]);
@@ -81,7 +81,7 @@ export async function generateMetadata() {
 
 export default function RootLayout({children}) {
   return (
-    <html lang="en" className={ibmPlexArabic.variable} suppressHydrationWarning>
+    <html lang="en" className={almarai.variable} suppressHydrationWarning>
       <head>
         <script id="asas-theme-boot" dangerouslySetInnerHTML={{__html: THEME_BOOT_SCRIPT}} />
         <script id="asas-locale-boot" dangerouslySetInnerHTML={{__html: LOCALE_HTML_BOOT}} />

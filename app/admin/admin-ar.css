@@ -1,5 +1,5 @@
 /* Arabic admin chrome. Document design canvases keep their chosen content direction. */
-.admin-ar { --cms-font: 'IBM Plex Sans Arabic', 'Noto Sans Arabic', Tahoma, Arial, sans-serif; direction:rtl; text-align:start; font-family:var(--cms-font); line-height:1.7; }
+.admin-ar { --cms-font: var(--font-almarai), 'Almarai', 'Noto Kufi Arabic', Tahoma, Arial, sans-serif; direction:rtl; text-align:start; font-family:var(--cms-font); line-height:1.7; }
 .admin-ar .cms-body { font-family:var(--cms-font); line-height:1.7; }
 .admin-ar :is(button,input,select,textarea) { font-family:inherit; }
 .admin-ar :is(.cms-sidebar-brand,.cms-nav-group-label,.cms-breadcrumb,.cms-table th,.ops-eyebrow,.erp-eyebrow,.erp-table th,.erp-status) { letter-spacing:normal; text-transform:none; }

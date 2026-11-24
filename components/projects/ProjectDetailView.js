@@ -22,8 +22,6 @@ import {
   Download,
   FileText,
   Layers,
-  Layers3,
-  MapPin,
   Play,
   Ruler,
   Tag,
@@ -153,13 +151,6 @@ const DEFAULT_SCOPE_BY_CATEGORY = {
   },
 };
 
-function extractPlotCode(location = '') {
-  const match = String(location).match(
-    /\b((?:EB|MSH|RBW|SH|SE|RD|Z|W|C|M)\d+(?:-\d+)?|[A-Z]{1,4}\d{1,3}(?:-\d{1,2})?)\b/i,
-  );
-  return match ? match[1].toUpperCase() : '';
-}
-
 function extractFacts(project, ar, category, services) {
   const text = `${project.description || ''} ${project.descriptionAr || ''}`;
   const metrics = [];
@@ -195,22 +186,11 @@ function extractFacts(project, ar, category, services) {
 
   if (category) addDetail(ar ? 'الفئة' : 'Category', ar ? category.titleAr : category.title);
 
-  const locationValue = ar
-    ? project.locationAr || project.location
-    : project.location || project.locationAr;
-  if (locationValue) addDetail(ar ? 'الموقع' : 'Location', locationValue);
-
   const kind = project.kind || 'built';
   const kindLabel = ar
     ? projectKinds[kind]?.ar || kind
     : projectKinds[kind]?.en || kind;
   addDetail(ar ? 'النوع' : 'Type', kindLabel);
-
-  const area = ar ? project.locationShortAr : project.locationShort;
-  if (area && area !== locationValue) addDetail(ar ? 'المنطقة' : 'Area', area);
-
-  const plot = extractPlotCode(project.location || project.locationAr || '');
-  if (plot) addDetail(ar ? 'القطعة / القطاع' : 'Plot / Sector', plot);
 
   const status =
     kind === 'study'
@@ -281,7 +261,7 @@ export default function ProjectDetailView({
   peers = [],
   peerIndex = 0,
   title,
-  location,
+  location: _location,
   description,
   services,
   scopeTags,
@@ -297,13 +277,11 @@ export default function ProjectDetailView({
   const titleLines = useMemo(() => splitTitle(title), [title]);
   const [index, setIndex] = useState(0);
   const [lightbox, setLightbox] = useState(null);
-  const [panel, setPanel] = useState(location ? 'map' : 'diagram');
   const [activeTab, setActiveTab] = useState('overview');
   const [relatedPage, setRelatedPage] = useState(0);
   const heroRef = useRef(null);
   const ctaRef = useRef(null);
   const current = gallery[index] || gallery[0];
-  const mapQuery = location ? encodeURIComponent(location) : '';
   const extraCount = Math.max(0, gallery.length - 4);
   const thumbItems = gallery.slice(0, 4);
   const relatedPages = Math.max(1, Math.ceil(related.length / 3));
@@ -311,14 +289,12 @@ export default function ProjectDetailView({
   const approach = resolveProjectApproach(project, locale);
   const approachLead = approach.lead;
   const approachSupport = approach.support;
-  const showMap = Boolean(location);
   const skipMetaLabels = new Set(
     ar
-      ? ['الفئة', 'الموقع', 'النطاق', 'النوع', 'المنطقة', 'الحالة', 'الدور']
-      : ['Category', 'Location', 'Scope', 'Type', 'Area', 'Status', 'Role'],
+      ? ['الفئة', 'الموقع', 'النطاق', 'النوع', 'المنطقة', 'الحالة', 'الدور', 'القطعة / القطاع']
+      : ['Category', 'Location', 'Scope', 'Type', 'Area', 'Status', 'Role', 'Plot / Sector'],
   );
   const factPreview = facts.filter((fact) => !skipMetaLabels.has(fact.label)).slice(0, 3);
-  const areaLabel = ar ? project.locationShortAr : project.locationShort;
   const kindLabel = project.kind
     ? ar
       ? projectKinds[project.kind]?.ar || project.kind
@@ -361,10 +337,9 @@ export default function ProjectDetailView({
       setIndex(0);
       setRelatedPage(0);
       setLightbox(null);
-      setPanel(location ? 'map' : 'diagram');
     });
     return () => cancelAnimationFrame(frame);
-  }, [project.slug, location]);
+  }, [project.slug]);
 
   useEffect(() => {
     if (lightbox == null) return undefined;
@@ -537,19 +512,6 @@ export default function ProjectDetailView({
                   </div>
                 </motion.div>
               )}
-              {location && (
-                <motion.div
-                  initial={reduced ? false : {opacity: 0, y: 10}}
-                  animate={{opacity: 1, y: 0}}
-                  transition={{duration: 0.45, delay: 0.42, ease: EASE}}
-                >
-                  <MapPin size={14} aria-hidden="true" />
-                  <div>
-                    <dt>{ar ? 'الموقع' : 'Location'}</dt>
-                    <dd>{location}</dd>
-                  </div>
-                </motion.div>
-              )}
               {kindLabel && (
                 <motion.div
                   initial={reduced ? false : {opacity: 0, y: 10}}
@@ -560,19 +522,6 @@ export default function ProjectDetailView({
                   <div>
                     <dt>{ar ? 'النوع' : 'Type'}</dt>
                     <dd>{kindLabel}</dd>
-                  </div>
-                </motion.div>
-              )}
-              {areaLabel && areaLabel !== location && (
-                <motion.div
-                  initial={reduced ? false : {opacity: 0, y: 10}}
-                  animate={{opacity: 1, y: 0}}
-                  transition={{duration: 0.45, delay: 0.48, ease: EASE}}
-                >
-                  <Layers3 size={14} aria-hidden="true" />
-                  <div>
-                    <dt>{ar ? 'المنطقة' : 'Area'}</dt>
-                    <dd>{areaLabel}</dd>
                   </div>
                 </motion.div>
               )}
@@ -740,42 +689,23 @@ export default function ProjectDetailView({
             </dl>
 
             <div className="pd-panel">
-              {showMap && (
-                <div className="pd-panel-tabs">
-                  <button type="button" className={panel === 'diagram' ? 'is-active' : ''} onClick={() => setPanel('diagram')}>
-                    {ar ? 'مخطط المبنى' : 'Building Diagram'}
-                  </button>
-                  <button type="button" className={panel === 'map' ? 'is-active' : ''} onClick={() => setPanel('map')}>
-                    {ar ? 'خريطة الموقع' : 'Location Map'}
-                  </button>
-                </div>
-              )}
               <div className="pd-panel-body">
-                {panel === 'map' && showMap ? (
-                  <iframe
-                    title={ar ? 'خريطة الموقع' : 'Location map'}
-                    src={`https://maps.google.com/maps?q=${mapQuery}&z=13&output=embed`}
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                  />
-                ) : (
-                  <svg viewBox="0 0 420 360" className="pd-elevation" aria-hidden="true">
-                    <rect width="420" height="360" fill="#f3f5f7" />
-                    <g fill="none" stroke="#0b1d4d" strokeWidth="1.35" opacity="0.72">
-                      <path d="M68 310 V88 H118 V310" />
-                      <path d="M138 310 V62 H198 V310" />
-                      <path d="M218 310 V94 H278 V310" />
-                      <path d="M298 310 V74 H358 V310" />
-                      <path d="M48 310 H378" />
-                      <path d="M68 150 H358" />
-                      <path d="M68 210 H358" />
-                      <path d="M68 260 H358" />
-                    </g>
-                    <text x="68" y="338" fill="#6b7280" fontSize="11" fontFamily="Segoe UI, Arial, sans-serif">
-                      {ar ? 'مخطط مفاهيمي' : 'Conceptual elevation'}
-                    </text>
-                  </svg>
-                )}
+                <svg viewBox="0 0 420 360" className="pd-elevation" aria-hidden="true">
+                  <rect width="420" height="360" fill="#f3f5f7" />
+                  <g fill="none" stroke="#0b1d4d" strokeWidth="1.35" opacity="0.72">
+                    <path d="M68 310 V88 H118 V310" />
+                    <path d="M138 310 V62 H198 V310" />
+                    <path d="M218 310 V94 H278 V310" />
+                    <path d="M298 310 V74 H358 V310" />
+                    <path d="M48 310 H378" />
+                    <path d="M68 150 H358" />
+                    <path d="M68 210 H358" />
+                    <path d="M68 260 H358" />
+                  </g>
+                  <text x="68" y="338" fill="#6b7280" fontSize="11" fontFamily="Segoe UI, Arial, sans-serif">
+                    {ar ? 'مخطط مفاهيمي' : 'Conceptual elevation'}
+                  </text>
+                </svg>
               </div>
             </div>
           </div>
@@ -892,7 +822,6 @@ export default function ProjectDetailView({
             <div className="pd-related-grid">
               {relatedSlice.map((item) => {
                 const itemTitle = ar ? item.titleAr : item.title;
-                const itemLocation = ar ? item.locationAr : item.location;
                 const itemCat = item.categoryLabel;
                 const itemImage = item.imageAsset?.portfolio || item.visual?.src || null;
                 return (
@@ -918,7 +847,6 @@ export default function ProjectDetailView({
                     <span className="pd-related-copy">
                       <small>{ar ? itemCat?.titleAr : itemCat?.title}</small>
                       <strong>{itemTitle}</strong>
-                      {itemLocation && <em>{itemLocation}</em>}
                     </span>
                     <span className="pd-related-orb" aria-hidden="true">
                       <ArrowRight size={16} className={ar ? 'reverse-arrow' : ''} />

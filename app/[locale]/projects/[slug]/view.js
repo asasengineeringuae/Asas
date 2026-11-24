@@ -122,7 +122,6 @@ export default async function Project({params}) {
     url: pageUrl,
     image: project.cover || project.image || project.visual?.src || undefined,
     creator: {'@type': 'Organization', name: 'ASAS Engineering & Project Management Consultancy'},
-    contentLocation: ar ? project.locationAr || project.location : project.location,
   };
 
   return (

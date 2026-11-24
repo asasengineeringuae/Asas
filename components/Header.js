@@ -151,9 +151,11 @@ export default function Header({locale, navItems, companyData, branding}) {
   const ar = locale === 'ar';
   const isHome = pathname === `/${locale}` || pathname === `/${locale}/`;
   const companyInfo = companyData || company;
-  const mapsHref = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-    ar ? companyInfo.addressAr || companyInfo.address : companyInfo.address,
-  )}`;
+  const mapsHref =
+    companyInfo.mapsUrl ||
+    `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+      ar ? companyInfo.addressAr || companyInfo.address : companyInfo.address,
+    )}`;
   const items = Array.isArray(navItems) && navItems.length ? navItems : DEFAULT_NAV_ITEMS;
   const visibleItems = items.filter((item) => !item.hidden);
 

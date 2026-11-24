@@ -1174,7 +1174,7 @@ export default function LetterheadStudio({
             className="lhs-input"
             value={doc.footerAddressLine1 || ''}
             disabled={!canWrite}
-            placeholder={adminText("East 9 - Behind Safeer Mall")}
+            placeholder={adminText("East 9 - behind Safeer Mall")}
             onChange={(e) => setField('footerAddressLine1', e.target.value)}
           />
         </label>

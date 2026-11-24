@@ -185,14 +185,14 @@ const fallbackFaqs = {
     ['What engineering services does ASAS provide?', 'ASAS provides architectural, structural, civil and electromechanical design, quantity and cost services, project management, construction supervision, infrastructure, traffic studies, urban planning, sustainability and interior design.'],
     ['What project sectors does ASAS work across?', 'The portfolio includes towers, commercial and residential buildings, industrial facilities, infrastructure, schools, villas, compounds and interiors.'],
     ['Does ASAS provide both design and supervision?', 'Yes. ASAS provides coordinated design services and resident engineering and site supervision through construction and handover.'],
-    ['Where is the ASAS office?', 'The office is in Musaffah East 9, Abu Dhabi, behind Safeer Mall, in ADCP Building No. P1239.'],
+    ['Where is the ASAS office?', 'The head office is in East 9, behind Safeer Mall, Mohamed Bin Zayed City, Mussafah Community, Abu Dhabi. ASAS also has offices in Dubai and Syria.'],
     ['How does a project progress with ASAS?', 'The documented lifecycle covers concept and brief, design, tender, construction, snagging, final handover, financial closure and future phases.'],
   ],
   ar: [
     ['ما الخدمات الهندسية التي تقدمها أساس للاستشارات الهندسية وإدارة المشاريع؟', 'تقدم أساس للاستشارات الهندسية وإدارة المشاريع التصميم المعماري والإنشائي والمدني والكهروميكانيكي، وخدمات الكميات والتكلفة، وإدارة المشاريع والإشراف، والبنية التحتية ودراسات المرور والتخطيط الحضري والاستدامة والتصميم الداخلي.'],
     ['ما القطاعات التي تعمل فيها أساس للاستشارات الهندسية وإدارة المشاريع؟', 'تشمل الأعمال الأبراج والمباني التجارية والسكنية والمنشآت الصناعية والبنية التحتية والمدارس والفلل والمجمعات والتصميم الداخلي.'],
     ['هل تقدم أساس للاستشارات الهندسية وإدارة المشاريع التصميم والإشراف؟', 'نعم. تقدم أساس للاستشارات الهندسية وإدارة المشاريع خدمات تصميم منسقة وهندسة مقيمة وإشرافاً موقعياً خلال التنفيذ والتسليم.'],
-    ['أين يقع مكتب أساس للاستشارات الهندسية وإدارة المشاريع؟', 'يقع المكتب في مصفح شرق 9 في أبوظبي، خلف سفير مول، في مبنى ADCP رقم P1239.'],
+    ['أين يقع مكتب أساس للاستشارات الهندسية وإدارة المشاريع؟', 'المكتب الرئيسي في شرق 9، خلف السفير مول، مدينة محمد بن زايد، مجتمع مصفح، أبوظبي. ولأساس أيضاً مكاتب في دبي وسوريا.'],
     ['كيف يتقدم المشروع مع أساس للاستشارات الهندسية وإدارة المشاريع؟', 'تشمل دورة الحياة الموثقة الفكرة والموجز والتصميم والعطاء والتنفيذ وحصر الملاحظات والتسليم النهائي والإغلاق المالي والمراحل المستقبلية.'],
   ],
 };

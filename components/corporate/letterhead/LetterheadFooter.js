@@ -50,13 +50,13 @@ export default function LetterheadFooter({
   const line1 =
     doc?.footerAddressLine1 ||
     (language === 'ar'
-      ? 'مصفح شرق 9 — خلف سفير مول'
-      : 'East 9 - Behind Safeer Mall');
+      ? 'شرق 9 — خلف السفير مول'
+      : 'East 9 - behind Safeer Mall');
   const line2 =
     doc?.footerAddressLine2 ||
     (language === 'ar'
-      ? 'مصفح السكني، أبوظبي'
-      : 'Mussafah Residential, Abu Dhabi');
+      ? 'مدينة محمد بن زايد، مجتمع مصفح، أبوظبي'
+      : 'Mohamed Bin Zayed City, Mussafah Community, Abu Dhabi');
 
   const showAddr = doc?.showFooterAddress !== false;
   const showEmail = doc?.showFooterEmail !== false;

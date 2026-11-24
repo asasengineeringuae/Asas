@@ -6,6 +6,7 @@ import {offices as officesSeed} from '@/data/company';
 import 'leaflet/dist/leaflet.css';
 
 function directionsUrl(office) {
+  if (office.mapUrl) return office.mapUrl;
   const q = encodeURIComponent(office.mapQuery || office.address || '');
   return `https://www.google.com/maps/dir/?api=1&destination=${q}`;
 }

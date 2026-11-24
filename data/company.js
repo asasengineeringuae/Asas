@@ -17,8 +17,9 @@ export const company = {
   website: 'www.asasengg.ae',
   poBox: 'P.O. Box 114789',
   poBoxAr: 'ص.ب. 114789',
-  address: 'ADCP Building No. P1239, Plot No. C125, Musaffah East 9, behind Safeer Mall, Mezzanine Floor, Office 3, P.O. Box 114789, Abu Dhabi, UAE',
-  addressAr: 'مبنى ADCP رقم P1239، قطعة C125، مصفح شرق 9، خلف سفير مول، طابق الميزانين، مكتب 3، ص.ب. 114789، أبوظبي، الإمارات',
+  address: 'East 9, behind Safeer Mall, Mohamed Bin Zayed City, Mussafah Community, Abu Dhabi',
+  addressAr: 'شرق 9، خلف السفير مول، مدينة محمد بن زايد، مجتمع مصفح، أبوظبي',
+  mapsUrl: 'https://maps.app.goo.gl/wa25EqH7j8fmQYQUA',
   shortDescription: 'A single Abu Dhabi consultancy covering architecture, structure, electromechanical services, quantity surveying and site supervision.',
   shortDescriptionAr: 'مكتب استشاري واحد في أبوظبي يغطي العمارة والإنشاءات والأعمال الكهروميكانيكية وحصر الكميات والإشراف الموقعي.',
   description: 'Founded in Abu Dhabi in 2009, ASAS provides architectural, structural, civil and electromechanical design, quantities and cost services, project management and construction supervision.',
@@ -40,11 +41,12 @@ export const offices = [
     title: 'ASAS office in Abu Dhabi',
     titleAr: 'مكتب أساس في أبوظبي',
     address:
-      'ADCP Building No. P1239, Plot No. C125, Musaffah East 9, behind Safeer Mall, Mezzanine Floor, Office 3, P.O. Box 114789, Abu Dhabi, UAE',
+      'East 9, behind Safeer Mall, Mohamed Bin Zayed City, Mussafah Community, Abu Dhabi',
     addressAr:
-      'مبنى ADCP رقم P1239، قطعة C125، مصفح شرق 9، خلف سفير مول، طابق الميزانين، مكتب 3، ص.ب. 114789، أبوظبي، الإمارات',
+      'شرق 9، خلف السفير مول، مدينة محمد بن زايد، مجتمع مصفح، أبوظبي',
     mapQuery:
-      'ADCP Building P1239, Plot C125, Musaffah East 9, behind Safeer Mall, Abu Dhabi, UAE',
+      'East 9, behind Safeer Mall, Mohamed Bin Zayed City, Mussafah Community, Abu Dhabi',
+    mapUrl: 'https://maps.app.goo.gl/wa25EqH7j8fmQYQUA',
     lat: 24.3638,
     lng: 54.5142,
     phone: '+971 2 63 11 320',

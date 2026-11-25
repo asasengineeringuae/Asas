@@ -280,44 +280,44 @@
       ]
     },
     {
-      "id": "mosque",
-      "slug": "mosque-al-shamkha-sh9",
-      "image": "/assets/asas/projects-client/mosque-al-shamkha-sh9/mosque-al-shamkha-sh9-01.jpg",
-      "crop": "50% 40%",
-      "strip": "Worship",
-      "stripAr": "مساجد",
-      "location": "Al Shamkha, Abu Dhabi",
-      "locationAr": "الشامخة، أبوظبي",
-      "title": "Mosque — Al Shamkha SH9",
-      "titleAr": "مسجد — الشامخة SH9",
-      "note": "Mosque in Al Shamkha, sector SH9. Design includes architecture, civil & structural, 3D, electrical, water, AC, civil defence, Etisalat, drainage, CCTV, quantities and specification.",
-      "noteAr": "مسجد في الشامخة، القطاع SH9. التصميم يشمل المعماري والإنشائي و3D والكهرباء والمياه والتكييف والدفاع المدني والاتصالات والصرف والكاميرات والكميات والمواصفات.",
+      "id": "villa-g1-roof",
+      "slug": "villa-g1-roof",
+      "image": "/assets/asas/projects-client/villa-g1-roof/villa-g1-roof-15.jpg",
+      "crop": "50% 45%",
+      "strip": "Private Villa",
+      "stripAr": "فيلا خاصة",
+      "location": "Abu Dhabi",
+      "locationAr": "أبوظبي",
+      "title": "Private Villa — Ground + First + Roof",
+      "titleAr": "فيلا خاصة — أرضي + أول + سطح",
+      "note": "Architectural facade and interior proposal for a private G+1+roof villa in Abu Dhabi: street and garden elevations, pool terrace, roof deck, majlis and dining.",
+      "noteAr": "مقترح معماري وداخلي لفيلا خاصة أرضي + أول + سطح في أبوظبي: الواجهات، التراس والمسبح، السطح، المجلس والطعام.",
       "facts": [
         [
           "Type",
-          "Mosque"
+          "Villa"
         ],
         [
-          "Sector",
-          "SH9"
+          "Form",
+          "G+1+roof"
         ],
         [
-          "Extras",
-          "Civil defence"
+          "City",
+          "Abu Dhabi"
         ]
       ],
       "factsAr": [
         [
           "النوع",
-          "مسجد"
+          "فيلا"
         ],
         [
-          "القطاع",
-          "SH9"
+          "التكوين",
+          "أرضي + أول + سطح"
         ],
         [
-          "إضافي",
-          "دفاع مدني"
+          "المدينة",
+          "أبوظبي"
         ]
       ]
     }

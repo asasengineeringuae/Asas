@@ -113,11 +113,10 @@
     "slug": "villa-g1-roof",
     "title": "Private Villa — Ground + First + Roof",
     "titleAr": "فيلا خاصة — أرضي + أول + سطح",
-    "category": "interior-design",
-    "sector": "interior-design",
+    "category": "private-villas",
+    "sector": "private-villas",
     "sectors": [
-      "villas-compounds-palaces",
-      "interior-hospitality-retail"
+      "villas-compounds-palaces"
     ],
     "location": "Abu Dhabi",
     "locationAr": "أبوظبي",
@@ -222,10 +221,10 @@
     "slug": "villa-al-rumaithi",
     "title": "Private Villa Interiors",
     "titleAr": "تصميم داخلي لفيلا خاصة",
-    "category": "interior-design",
-    "sector": "interior-design",
+    "category": "private-villas",
+    "sector": "private-villas",
     "sectors": [
-      "interior-hospitality-retail"
+      "villas-compounds-palaces"
     ],
     "location": "Abu Dhabi",
     "locationAr": "أبوظبي",
@@ -317,19 +316,19 @@
     "status": "published",
     "id": 65,
     "slug": "villa-khalifa-city-interiors",
-    "title": "Private Villa Interiors — Khalifa City",
-    "titleAr": "تصميم داخلي لفيلا — مدينة خليفة",
+    "title": "Private Villa Interiors — Dubai",
+    "titleAr": "تصميم داخلي لفيلا — دبي",
     "category": "interior-design",
     "sector": "interior-design",
     "sectors": [
       "interior-hospitality-retail"
     ],
-    "location": "Khalifa City, Abu Dhabi",
-    "locationAr": "مدينة خليفة، أبوظبي",
-    "locationShort": "Khalifa City",
-    "locationShortAr": "مدينة خليفة",
-    "description": "Interior design for a private villa in Khalifa City: living, dining, kitchen, bedrooms and bathrooms. Exterior elevations are not published.",
-    "descriptionAr": "تصميم داخلي لفيلا خاصة في مدينة خليفة: المعيشة والطعام والمطبخ وغرف النوم والحمامات. الواجهات الخارجية غير منشورة.",
+    "location": "Dubai",
+    "locationAr": "دبي",
+    "locationShort": "Dubai",
+    "locationShortAr": "دبي",
+    "description": "Interior design for a private villa in Dubai: living, dining, kitchen, bedrooms and bathrooms. Exterior elevations are not published.",
+    "descriptionAr": "تصميم داخلي لفيلا خاصة في دبي: المعيشة والطعام والمطبخ وغرف النوم والحمامات. الواجهات الخارجية غير منشورة.",
     "scope": "Interior design · Private villa",
     "services": [
       "interior-design"
